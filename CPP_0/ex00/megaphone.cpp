@@ -18,8 +18,10 @@ int main(int argc, char **argv)
 		j = 0;
 		while (tab[i][j])
 		{
-			std::cout << (char)std::toupper(tab[i][j]);
-			j++;
+			if (islower(tab[i][j]))
+				tab[i][j] -= 32;
+			std::cout << tab[i][j];
+		 j++;
 		}
 		i++;
 	}

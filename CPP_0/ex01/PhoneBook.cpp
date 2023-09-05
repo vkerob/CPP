@@ -1,4 +1,11 @@
-int	main()
-{
-	return (0);
+#include"PhoneBook.hpp"
+
+PhoneBook::PhoneBook(void) {
+
+	return ;
+}
+
+PhoneBook::~PhoneBook(void) {
+
+	return ;
 }

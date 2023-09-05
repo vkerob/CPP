@@ -1,39 +1,19 @@
-#include"Contact.hpp"
-#include<string>
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
-class PhoneBook
-{
-private:
-	Contact	contact[8];
+#include<Contact.hpp>
+
+class PhoneBook {
+
 public:
-	PhoneBook();
-	void		ADD(std::string str);
-	std::string	SEARCH();
-	void		EXIT();
-	~PhoneBook();
+
+	PhoneBook(void);
+	~PhoneBook(void);
+	
+
+private:
+	Contact contact[8];
 };
 
-PhoneBook::PhoneBook()
-{
 
-};
-
-PhoneBook::~PhoneBook()
-{
-	delete this->contact;
-};
-
-void	PhoneBook::ADD(std::string str)
-{
-	this->contact[]
-};
-
-std::string	PhoneBook::SEARCH()
-{
-
-};
-
-void	PhoneBook::EXIT()
-{
-
-};
+#endif
