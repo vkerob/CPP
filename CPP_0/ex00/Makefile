@@ -17,10 +17,10 @@ $(NAME) : $(OBJ)
 all : $(NAME)
 
 clean :
-	@rm -f $(OBJ) $(OBJ_BONUS)
+	@rm -f $(OBJ)
 
 fclean : clean
-	@rm -f $(NAME) $(NAME_BONUS)
+	@rm -f $(NAME)
 
 re : fclean all
 

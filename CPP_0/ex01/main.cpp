@@ -3,11 +3,19 @@
 
 int	main(void)
 {
-	PhoneBook directory;
-	char	*str;
+	PhoneBook	directory;
+	std::string	input;
 
-	while(str[0] != '\0')
+	while(1)
 	{
+		if (input[0] == '\0')
 
+		else if (strcmp(input, "EXIT"))
+
+		else if (strcmp(input, "SEARCH"))
+
+		else if (strcmp(input, "ADD"))
+
+		else
 	}
 }

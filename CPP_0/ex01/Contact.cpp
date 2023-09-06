@@ -12,4 +12,12 @@ Contact::~Contact(void) {
 	return ;
 }
 
-void	set
+void	set_string(std::string str)
+{
+
+}
+
+void	set_number(std::string number)
+{
+	
+}

@@ -2,6 +2,7 @@
 # define CONTACT_H
 
 #include<iostream>
+#include<string>
 
 class Contact {
 
@@ -9,7 +10,8 @@ public:
 
 	Contact(void);
 	~Contact(void);
-	void	set_first_name(std::string);
+	void	set_string(std::string str);
+	void	set_phone_number(std::string number);
 
 private:
 	std::string	first_name;
