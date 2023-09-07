@@ -1,6 +1,6 @@
 #include"Contact.hpp"
 #include"PhoneBook.hpp"
-
+#include<cstdlib>
 
 void	stack_input_and_check_empty(std::string &str)
 {
@@ -25,7 +25,7 @@ int	main(void)
 	i = 0;
 	while(1)
 	{
-		std::cout << "PhoneBook : " << std::endl;
+		std::cout << "PhoneBook : ";
 		stack_input_and_check_empty(input);
 		if (input == "EXIT")
 			return(0);
@@ -38,5 +38,6 @@ int	main(void)
 		{
 			std::cout << "posible input: " << std::endl << "ADD, SEARCH, EXIT" << std::endl;
 		}
+		input.clear();
 	}
 }

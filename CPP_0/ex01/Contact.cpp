@@ -32,11 +32,12 @@ void	Contact::set_string(std::string str, std::string identifier)
 
 int	Contact::set_phone_number(std::string number)
 {
-	int i;
+	int i = 0;
 	while (number[i])
 	{
 		if (isdigit(number[i]) != 1)
 			return (1);
+		i++;
 	}
 	if (number.length() > 9)
 	{
