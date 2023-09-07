@@ -10,7 +10,7 @@ public:
 	PhoneBook(void);
 	~PhoneBook(void);
 
-	void	add_contact(std::string str);
+	void	add_contact(std::string str, int i);
 	
 
 private:

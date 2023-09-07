@@ -8,23 +8,20 @@ SRC = main.cpp \
 		Contact.cpp \
 		PhoneBook.cpp \
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	@$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME) : $(OBJ)
-
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 all : $(NAME)
 
 clean :
-	@make clean
 	@rm -f $(OBJ)
 
 fclean : clean
-	@make fclean
 	@rm -f $(NAME)
 
 re : fclean all
