@@ -18,6 +18,5 @@ int	PhoneBook::add_contact(std::string first_name, std::string last_name, std::s
 	contact[i].set_string(last_name, "last_name");
 	contact[i].set_string(nickname, "nickname");
 	contact[i].set_string(darkest_secret, "darkest_secret");
-
-
+	return (0);
 }

@@ -5,11 +5,16 @@
 int	stack_input_and_check_empty(std::string &str, std::string entry)
 {
 	std::cout << entry;
-	std::getline(std::cin, str);
-	if (str.empty())
+	if (!std::getline(std::cin, str))
+	{
+		std::cout << std::endl;
 		return (1);
-	if (str == "\n")
+	}
+	if (str.empty())
+	{
 		stack_input_and_check_empty(str, entry);
+		return(1);
+	}
 	return (0);
 }
 
@@ -31,6 +36,21 @@ int	stack_all_info_and_add_contact(PhoneBook &phonebook, int &i)
 	return (0);
 }
 
+void	print_info(PhoneBook phonebook)
+{
+	int	i = 0;
+	std::cout << "   index  | first name| last name| nickname " << std::endl;
+	while (phonebook.contact[i].first_name.empty() != 0 && i != 7)
+	{
+
+		std::cout << "     " i << "    ";
+		std::cout << phonebook.contact[i].first_name;
+		std::cout << phonebook.contact[i].last_name;
+		std::cout << phonebook.contact[i].nickname << std::endl;
+		i++;
+	}
+}
+
 int	main(void)
 {
 	PhoneBook	phonebook;
@@ -47,7 +67,7 @@ int	main(void)
 			return(0);
 		else if (input == "SEARCH")
 		{
-			
+			print_info(phonebook);
 		}
 		else if (input == "ADD")
 		{

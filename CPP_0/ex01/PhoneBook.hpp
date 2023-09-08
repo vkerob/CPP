@@ -9,7 +9,7 @@ public:
 
 	PhoneBook(void);
 	~PhoneBook(void);
-	void	add_contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret, int i);
+	int	add_contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret, int i);
 
 private:
 	Contact contact[8];
