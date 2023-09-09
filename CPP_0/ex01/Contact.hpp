@@ -10,8 +10,8 @@ public:
 
 	Contact(void);
 	~Contact(void);
-	void	set_string(std::string str, std::string identifier);
-	int		set_phone_number(std::string number);
+	void		set_string(std::string str, std::string identifier);
+	std::string	get_string(std::string identifier);
 
 private:
 	std::string	first_name;
