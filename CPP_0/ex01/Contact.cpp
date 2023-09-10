@@ -34,5 +34,9 @@ std::string Contact::get_string(std::string identifier)
 		return(this->last_name);
 	else if (identifier == "nickname")
 		return(this->nickname);
+	else if (identifier == "phone_number")
+		return(this->phone_number);
+	else if (identifier == "darkest_secret")
+		return(this->darkest_secret);
 	return ("");
 }

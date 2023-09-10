@@ -30,12 +30,12 @@ void	PhoneBook::print_info(PhoneBook &phonebook)
 	std:: string str;
 
 	if (!this->contact[i].get_string("first_name").empty())
-		std::cout << "   index  |first name| last name| nickname " << std::endl;
+		std::cout << "   index  |first name| last name| nickname |" << std::endl;
 	else
 		std::cout << "Add a contact before searching" << std::endl;
 	while (!this->contact[i].get_string("first_name").empty() && i != 8)
 	{
-		std::cout << "     " << i << "    |";
+		std::cout << "         " << i << "|";
 		std::cout << fill_string(phonebook, "first_name", i);
 		std::cout << fill_string(phonebook, "last_name", i);
 		std::cout << fill_string(phonebook, "nickname", i) << std::endl;
@@ -59,10 +59,12 @@ int	PhoneBook::get_index(PhoneBook &phonebook)
 		std::cout << "This contact does not exit" << std::endl;
 		return (0);
 	}
-	std::cout << "first name| last name| nickname " << std::endl;
+	std::cout << "first name| last name|  nickname|     phone|    secret|" << std::endl;
 	std::cout << fill_string(phonebook, "first_name", index);
 	std::cout << fill_string(phonebook, "last_name", index);
-	std::cout << fill_string(phonebook, "nickname", index) << std::endl << std::endl;
+	std::cout << fill_string(phonebook, "nickname", index);
+	std::cout << fill_string(phonebook, "phone_number", index);
+	std::cout << fill_string(phonebook, "darkest_secret", index) << std::endl << std::endl;
 	return (0);
 
 }
@@ -76,14 +78,17 @@ std::string PhoneBook::fill_string(PhoneBook &phonebook, std::string identifier,
 		str = phonebook.contact[i].get_string("last_name");
 	if (identifier == "nickname")
 		str = phonebook.contact[i].get_string("nickname");
+	if (identifier == "phone_number")
+		str = phonebook.contact[i].get_string("phone_number");
+	if (identifier == "darkest_secret")
+		str = phonebook.contact[i].get_string("darkest_secret");
 	if (str.length() > 9)
 	{
 		str = str.substr(0, 9);
 		str.append(".");
 	}
 	while (str.length() < 10)
-		str.append(" ");
-	if (identifier != "nickname")
-		str.append("|");
+		str = " " + str;
+	str.append("|");
 	return (str);
 }

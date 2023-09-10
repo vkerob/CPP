@@ -5,9 +5,11 @@
 int	check_only_digit(std::string number)
 {
 	int i = 0;
+	if (number.empty())
+		return (1);
 	while (number[i])
 	{
-		if (isdigit(number[i]) != 1)
+		if (isdigit(number[i]) == 0)
 			return (1);
 		i++;
 	}
@@ -17,9 +19,11 @@ int	check_only_digit(std::string number)
 int	check_index(std::string number)
 {
 	int i = 0;
+	if (number.empty())
+		return (1);
 	while (number[i])
 	{
-		if (isdigit(number[i]) != 1 || number.length() > 1 || number[i] > '7')
+		if (isdigit(number[i]) == 0 || number.length() > 1 || number[i] > '7')
 			return (1);
 		i++;
 	}
@@ -38,7 +42,8 @@ int	stack_input_and_check_empty(std::string &str, std::string entry)
 		}
 		while (check_only_digit(str))
 		{
-			std::cout << "Digit only for phone number" << std::endl;
+			if (!str.empty())
+				std::cout << "Digit only for phone number" << std::endl;
 			std::cout << entry;
 			if (!std::getline(std::cin, str))
 			{
@@ -46,6 +51,7 @@ int	stack_input_and_check_empty(std::string &str, std::string entry)
 				return (1);
 			}
 		}
+		return (0);
 	}
 	if (entry == "index: ")
 	{
@@ -57,7 +63,8 @@ int	stack_input_and_check_empty(std::string &str, std::string entry)
 		}
 		while (check_index(str))
 		{
-			std::cout << "Number only for index: 0-7" << std::endl;
+			if (!str.empty())
+				std::cout << "Number only for index: 0-7" << std::endl;
 			std::cout << entry;
 			if (!std::getline(std::cin, str))
 			{
@@ -65,6 +72,7 @@ int	stack_input_and_check_empty(std::string &str, std::string entry)
 				return (1);
 			}
 		}
+		return (0);
 	}
 	while (str.empty())
 	{
