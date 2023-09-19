@@ -2,13 +2,14 @@
 # define HUMANB_HPP
 
 #include"Weapon.hpp"
+#include<iostream>
 
 class HumanB
 {
 private:
 
 	Weapon		*weapon;
-	std::string	name;
+	std::string	_name;
 
 public:
 

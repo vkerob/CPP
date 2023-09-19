@@ -7,8 +7,7 @@ class  Zombie
 {
 private:
 
-	std::string name;
-	Zombie		*horde;
+	std::string _name;
 	
 public:
 

@@ -1,11 +1,11 @@
-NAME = a.out
+NAME = harlFilter
 
 CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 SRC = main.cpp \
-		Harl.cpp \
+		Fixed.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 

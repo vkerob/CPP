@@ -14,6 +14,20 @@ Harl::~Harl()
 
 }
 
+Harl::Level	Harl::_str_to_enum(std::string level)
+{
+	if (level == "DEBUG")
+		return (debug_level);
+	else if (level == "INFO")
+		return (info_level);
+	else if (level == "WARNING")
+		return(warning_level);
+	else if (level == "ERROR")
+		return(error_level);
+	else
+		return(none_level);
+}
+
 void	Harl::_debug( void )
 {
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
@@ -36,13 +50,23 @@ void	Harl::_error( void )
 
 void Harl::complain( std::string level )
 {
-	const char *tab_str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	Level enum_level;
 
-	for(int i = 0; i<4; i++)
+	enum_level = _str_to_enum(level);
+	switch(enum_level)
 	{
-		if (level == tab_str[i])
-		{
-			(this->*_tab_funcptr[i])();
-		}
+		case debug_level:
+			(this->*_tab_funcptr[0])();
+		case info_level:
+			(this->*_tab_funcptr[1])();
+		case warning_level:
+			(this->*_tab_funcptr[2])();
+		case error_level:
+			(this->*_tab_funcptr[3])();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
+
 }
