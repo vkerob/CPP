@@ -1,12 +1,11 @@
-
-
+#include<iostream>
 
 class Fixed
 {
 private:
 	
-	int	fixed_point;
-	static const int fractional_bits;
+	int	fixedValue;
+	static const int fractionalBits = 0;
 	
 public:
 
@@ -15,6 +14,7 @@ public:
 	~Fixed();
 
 	Fixed	&operator=(Fixed const &rhs);
+	int	getFixedValue( void ) const;
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
 	
