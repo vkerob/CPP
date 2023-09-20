@@ -4,8 +4,8 @@ class Fixed
 {
 private:
 	
-	int	fixedValue;
-	static const int fractionalBits = 0;
+	int					_fixedValue;
+	static const int	_fractionalBits = 8;
 	
 public:
 
@@ -14,7 +14,6 @@ public:
 	~Fixed();
 
 	Fixed	&operator=(Fixed const &rhs);
-	int	getFixedValue( void ) const;
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
 	

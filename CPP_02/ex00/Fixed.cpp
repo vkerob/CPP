@@ -1,7 +1,7 @@
 #include"Fixed.hpp"
 
 
-Fixed::Fixed()
+Fixed::Fixed() : _fixedValue(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -14,13 +14,13 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->fixedValue = src.getFixedValue();
+	*this = src;
 }
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->fixedValue = rhs.getFixedValue();
+	this->_fixedValue = rhs.getRawBits();
 
 	return (*this);
 }
@@ -28,15 +28,10 @@ Fixed	&Fixed::operator=(Fixed const &rhs)
 int Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (this->fractionalBits);
+	return (this->_fixedValue);
 }
 
 void Fixed::setRawBits( int const raw )
 {
-	this->fixedValue = raw;
-}
-
-int	Fixed::getFixedValue( void ) const
-{
-	return (this->fixedValue);
+	this->_fixedValue = raw;
 }
