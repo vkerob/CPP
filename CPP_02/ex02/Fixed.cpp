@@ -3,35 +3,31 @@
 
 Fixed::Fixed() : _fixedValue(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(int int_number)
 {
 	_fixedValue = int_number << this->getFractinalBits();
-	std::cout << "Int constructor called" << std::endl;
+
 }
 
 Fixed::Fixed(float float_number)
 {
 	_fixedValue = static_cast<int>(float_number * (1 << this->getFractinalBits()));
-	std::cout << "Float constructor called" << std::endl;
+	
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixedValue = rhs.getRawBits();
 
 	return (*this);
@@ -66,4 +62,104 @@ int Fixed::getFractinalBits( void ) const
 void Fixed::setRawBits( int const raw )
 {
 	this->_fixedValue = raw;
+}
+
+bool	Fixed::operator>(Fixed const &rhs) const
+{
+	if(this->_fixedValue > rhs.getRawBits())
+		return (true);
+	return(false);
+
+}
+
+bool	Fixed::operator<(Fixed const &rhs) const
+{
+	if(this->_fixedValue < rhs.getRawBits())
+		return (true);
+	return(false);
+}
+
+bool	Fixed::operator>=(Fixed const &rhs) const
+{
+	if(this->_fixedValue >= rhs.getRawBits())
+		return (true);
+	return(false);
+}
+
+bool	Fixed::operator<=(Fixed const &rhs) const
+{
+	if(this->_fixedValue <= rhs.getRawBits())
+		return (true);
+	return(false);
+}
+
+bool	Fixed::operator!=(Fixed const &rhs) const
+{
+	if(this->_fixedValue != rhs.getRawBits())
+		return (true);
+	return(false);
+}
+
+Fixed&	Fixed::operator+(Fixed const &rhs)
+{
+	this->_fixedValue += rhs.getRawBits();
+	return (*this);
+}
+
+Fixed&	Fixed::operator-(Fixed const &rhs)
+{
+	this->_fixedValue -= rhs.getRawBits();
+	return (*this);
+}
+
+Fixed&	Fixed::operator*(Fixed const &rhs)
+{
+	this->_fixedValue = roundf(this->_fixedValue * rhs.getRawBits());
+	return (*this);
+}
+
+Fixed&	Fixed::operator/(Fixed const &rhs)
+{
+	this->_fixedValue /= rhs.getRawBits();
+	return (*this);
+}
+
+Fixed&	Fixed::operator++()
+{
+	this->_fixedValue++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	this->_fixedValue++;
+	return (tmp);
+}
+
+Fixed&	Fixed::operator--()
+{
+	this->_fixedValue--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	this->_fixedValue--;
+	return (tmp);
+}
+
+Fixed const&	Fixed::min(Fixed const &a, Fixed const &b)
+{
+	if (a <= b)
+		return (a);
+	return (b);
+}
+
+Fixed const&	Fixed::max(Fixed const &a, Fixed const &b)
+{
+		if (b <= a)
+		return (a);
+	return (b);
 }
