@@ -25,8 +25,8 @@ public:
 	bool	operator!=(Fixed const &rhs) const;
 	Fixed&	operator+(Fixed const &rhs);
 	Fixed&	operator-(Fixed const &rhs);
-	Fixed&	operator*(Fixed const &rhs);
-	Fixed&	operator/(Fixed const &rhs);
+	Fixed	operator*(Fixed const &rhs) const;
+	Fixed	operator/(Fixed const &rhs) const;
 	Fixed&	operator++();
 	Fixed	operator++(int);
 	Fixed&	operator--();

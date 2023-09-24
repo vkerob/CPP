@@ -5,9 +5,7 @@ CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 SRC = main.cpp \
-		Fixed.cpp \
-		Point.cpp  \
-		bsp.cpp \
+		ClapTrap.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 

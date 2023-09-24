@@ -1,5 +1,10 @@
+#ifndef FIXED_HPP
+#define FIXED_HPP
+
 #include<iostream>
 #include<cmath>
+
+
 class Fixed
 {
 private:
@@ -15,13 +20,13 @@ public:
 	Fixed(float float_number);
 	~Fixed();
 
-	Fixed	&operator=(Fixed const &rhs);
+	Fixed&	operator=(Fixed const &rhs);
 	int 	getRawBits( void ) const;
 	int 	getFractinalBits( void ) const;
-	float	toFloat( void ) const;
-	int		toInt( void ) const;
 	void 	setRawBits( int const raw );
 	
 };
 
 std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
+
+#endif
