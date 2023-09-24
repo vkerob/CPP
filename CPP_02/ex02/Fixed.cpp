@@ -91,8 +91,8 @@ Fixed const&	Fixed::max(Fixed const &a, Fixed const &b)
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
-	this->_fixedValue = rhs.getRawBits();
-
+	if (this != &rhs)
+		this->_fixedValue = rhs.getRawBits();
 	return (*this);
 }
 
