@@ -5,32 +5,38 @@
 
 class ClapTrap
 {
-private:
+	private:
 
-	std::string	_Name;
-	int			_Hit_point;
-	int			_Energy_point;
-	int			_Attack_damage;
-	
-public:
+		std::string	_Name;
+		int			_Hit_point;
+		int			_Energy_point;
+		int			_Attack_damage;
+		
+	public:
 
-	ClapTrap();
-	ClapTrap(const ClapTrap &src);
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap	&operator=(const ClapTrap &rhs);
-
-
-	void		attack(const std::string& target);
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
-	bool		checkPointValue(void);
+		ClapTrap();
+		ClapTrap(const ClapTrap &src);
+		ClapTrap(std::string name);
+		~ClapTrap();
+		ClapTrap	&operator=(const ClapTrap &rhs);
 
 
-	std::string	getName(void) const;
-	int			getHitPoint(void) const;
-	int			getEnergyPoint(void) const;
-	int			getAttackDamage(void) const;
+		void		attack(const std::string& target);
+		void		takeDamage(unsigned int amount);
+		void		beRepaired(unsigned int amount);
+		bool		checkPointValue(void);
+
+
+		std::string	getName(void) const;
+		int			getHitPoint(void) const;
+		int			getEnergyPoint(void) const;
+		int			getAttackDamage(void) const;
+
+
+		void	setName(std::string str);
+		void	setHitPoint(int value);
+		void	setEnergyPoint(int value);
+		void	setAttackDamage(int value);
 
 };
 

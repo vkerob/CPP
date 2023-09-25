@@ -5,13 +5,12 @@
 #include<iostream>
 
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
-	protected:
 
 	private:
-		
-	bool	_keeper_mode;
+
+		bool	_keeper_mode;
 
 	public:
 		

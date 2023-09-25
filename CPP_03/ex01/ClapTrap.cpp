@@ -6,9 +6,8 @@ ClapTrap::ClapTrap() : _Name("default npc"), _Hit_point(10), _Energy_point(10), 
 	std::cout << "ClapTrap created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _Hit_point(10), _Energy_point(10), _Attack_damage(0)
+ClapTrap::ClapTrap(std::string name) : _Name(name), _Hit_point(10), _Energy_point(10), _Attack_damage(0)
 {
-	_Name = name;
 	std::cout << "ClapTrap " << name << " created" << std::endl;
 }
 
@@ -27,10 +26,10 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
 {
 	if (this != &rhs)
 	{
-		_Name = rhs.getName();
-		_Attack_damage = rhs.getAttackDamage();
-		_Energy_point = rhs.getEnergyPoint();
-		_Hit_point = rhs.getHitPoint();
+		setName(rhs.getName());
+		setAttackDamage(rhs.getAttackDamage());
+		setEnergyPoint(rhs.getEnergyPoint());
+		setHitPoint(rhs.getHitPoint());
 	}
 	return (*this);
 }
@@ -50,7 +49,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (checkPointValue())
 		return ;
-	_Energy_point--;
+	setEnergyPoint(getEnergyPoint() - 1);
 	std::cout << "ClapTrap " << getName() << " attacks " << target << " causing " << getAttackDamage() << " points of damage!" << std::endl;
 
 }
@@ -59,7 +58,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (checkPointValue())
 		return ;
-	_Hit_point -= amount;
+	setHitPoint(getHitPoint() - amount);
 	std::cout << "ClapTrap " << getName() << " was attacked and took " << getAttackDamage() << " points of damage!" << std::endl;
 
 }
@@ -68,9 +67,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (checkPointValue())
 		return ;
-	_Energy_point--;
+	setEnergyPoint(getEnergyPoint() - 1);
 	std::cout << "ClapTrap " << getName() << " repaired itself by " << amount << " hit points" << std::endl;
-	_Hit_point += amount;
+	setHitPoint(getHitPoint() + amount);
 }
 
 std::string	ClapTrap::getName(void) const
@@ -95,17 +94,32 @@ int	ClapTrap::getAttackDamage(void) const
 
 
 
+void	ClapTrap::setName(std::string str)
+{
+	_Name = str;
+}
+
 void	ClapTrap::setHitPoint(int value)
 {
-	_Hit_point = value;
+	if (value < 0)
+		_Hit_point = 0;
+	else
+		_Hit_point = value;
 }
 
 void	ClapTrap::setEnergyPoint(int value)
 {
-	_Energy_point = value;
+	if (value < 0)
+		_Energy_point = 0;
+	else
+		_Energy_point = value;
 }
 
 void	ClapTrap::setAttackDamage(int value)
 {
-	_Attack_damage = value;
+	if (value < 0)
+		_Attack_damage = 0;
+	else
+		_Attack_damage = value;
 }
+

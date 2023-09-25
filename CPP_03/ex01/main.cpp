@@ -1,13 +1,13 @@
 #include"ClapTrap.hpp"
 #include"ScavTrap.hpp"
 
-void	displayInfo(ClapTrap &clap)
+void	displayInfo(ScavTrap &ScavTrap)
 {
 	std::cout << std::endl;
-	std::cout << "name: " << clap.getName() << std::endl;
-	std::cout << "hit points: " << clap.getHitPoint() << std::endl;
-	std::cout << "energy point: " << clap.getEnergyPoint() << std::endl;
-	std::cout << "attack damage: " << clap.getAttackDamage() << std::endl;
+	std::cout << "name: " << ScavTrap.getName() << std::endl;
+	std::cout << "hit points: " << ScavTrap.getHitPoint() << std::endl;
+	std::cout << "energy point: " << ScavTrap.getEnergyPoint() << std::endl;
+	std::cout << "attack damage: " << ScavTrap.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 }
 

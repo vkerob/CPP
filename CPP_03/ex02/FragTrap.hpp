@@ -10,8 +10,6 @@ class FragTrap : public ClapTrap
 	protected:
 
 	private:
-		
-	bool	_keeper_mode;
 
 	public:
 		

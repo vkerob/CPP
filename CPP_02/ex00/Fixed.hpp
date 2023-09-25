@@ -1,3 +1,6 @@
+#ifndef FIXED_CPP
+#define FIXED_CPP
+
 #include<iostream>
 
 class Fixed
@@ -19,3 +22,4 @@ public:
 	
 };
 
+#endif

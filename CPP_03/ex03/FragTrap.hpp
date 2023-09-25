@@ -5,13 +5,10 @@
 #include<iostream>
 
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
-	protected:
-
+	
 	private:
-		
-	bool	_keeper_mode;
 
 	public:
 		

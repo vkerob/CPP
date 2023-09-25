@@ -6,7 +6,7 @@ FragTrap::FragTrap() : ClapTrap()
 	setHitPoint(100);
 	setEnergyPoint(50);
 	setAttackDamage(20);
-	std::cout << "FragTrap " << name << " created" << std::endl;
+	std::cout << "FragTrap created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -29,15 +29,21 @@ FragTrap::~FragTrap()
 
 FragTrap	&FragTrap::operator=(FragTrap &rhs)
 {
-	/*if (this != &rhs)
+	if (this != &rhs)
 	{
-
-	}*/
-	(void)rhs;
+		this->setHitPoint(rhs.getHitPoint());
+		this->setEnergyPoint(rhs.getEnergyPoint());
+		this->setAttackDamage(rhs.getAttackDamage());
+	}
 	return (*this);
 }
 
 void	FragTrap::highFivesGuys(void)
 {
+	if (getHitPoint() <= 0)
+	{
+		std::cout << "FragTrap " << getName() << " is dead, unfortunately he can't do anything..." << std::endl;
+		return ;
+	}
 	std::cout << "(" << getName() << ") YEAHHH!!! HIGHFIVESGUYS!!!" << std::endl;
 }

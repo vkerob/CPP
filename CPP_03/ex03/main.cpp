@@ -3,13 +3,13 @@
 #include"FragTrap.hpp"
 #include"DiamondTrap.hpp"
 
-void	displayInfo(ClapTrap &clap)
+void	displayInfo(DiamondTrap &DiamondTrap)
 {
 	std::cout << std::endl;
-	std::cout << "name: " << clap.getName() << std::endl;
-	std::cout << "hit points: " << clap.getHitPoint() << std::endl;
-	std::cout << "energy point: " << clap.getEnergyPoint() << std::endl;
-	std::cout << "attack damage: " << clap.getAttackDamage() << std::endl;
+	std::cout << "name: " << DiamondTrap.getName() << std::endl;
+	std::cout << "hit points: " << DiamondTrap.getHitPoint() << std::endl;
+	std::cout << "energy point: " << DiamondTrap.getEnergyPoint() << std::endl;
+	std::cout << "attack damage: " << DiamondTrap.getAttackDamage() << std::endl;
 }
 
 
@@ -36,8 +36,8 @@ int	main(void)
 	std::cout << "\033[32m//---------------farmer npc---------------//\033[0m" <<std::endl;
 	displayInfo(npc2);
 	while (npc2.getHitPoint() > 0)
-		npc2.takeDamage(20);
-	npc2.takeDamage(20);
+		npc2.takeDamage(30);
+	npc2.takeDamage(30);
 	npc2.highFivesGuys();
 	displayInfo(npc2);
 
@@ -60,6 +60,7 @@ int	main(void)
 	while (npc4.getEnergyPoint() > 0)
 		npc4.guardGate();
 	npc4.guardGate();
+	npc4.whoAmI();
 	displayInfo(npc4);
 
 

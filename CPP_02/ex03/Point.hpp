@@ -1,4 +1,5 @@
-#pragma once
+#ifndef POINT_CPP
+#define POINT_CPP
 
 #include"Fixed.hpp"
 
@@ -21,3 +22,5 @@ public:
 	int gety( void ) const;
 
 };
+
+#endif

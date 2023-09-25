@@ -2,7 +2,7 @@ NAME = a.out
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g  -Wno-shadow
 
 SRC = main.cpp \
 		ClapTrap.cpp \

@@ -1,15 +1,15 @@
 #include"DiamondTrap.hpp"
 
 
-DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap(), ClapTrap::name()
+DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
-	std::cout << "DiamondTrap " << name << " created" << std::endl;
+	std::cout << "DiamondTrap created" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : FragTrap(), ScavTrap(), ClapTrap::_name(name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)
 {
-	setHitPoint(FragTrap::getHitPoint());
-	setAttackDamage(FragTrap::getAttackDamage());
+	_Name = name;
+	FragTrap::setAttackDamage(30);
 	std::cout << "DiamondTrap " << name << " created" << std::endl;
 }
 
@@ -20,16 +20,29 @@ DiamondTrap::DiamondTrap(DiamondTrap &src) : FragTrap(src), ScavTrap(src)
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap " << getName() << " destroyed" << std::endl;
+	std::cout << "DiamondTrap " << FragTrap::getName() << " destroyed" << std::endl;
 }
 
 DiamondTrap	&DiamondTrap::operator=(DiamondTrap &rhs)
 {
-	/*if (this != &rhs)
+	if (this != &rhs)
 	{
-
-	}*/
-	(void)rhs;
+		this->ClapTrap::setName(rhs.getName() + "_clap_name");
+		this->setHitPoint(rhs.getHitPoint());
+		this->setEnergyPoint(rhs.getEnergyPoint());
+		this->setAttackDamage(rhs.getAttackDamage());
+	}
 	return (*this);
 }
 
+void DiamondTrap::whoAmI( void )
+{
+	std::cout << std::endl
+	<< "DiamondTrap name: " << getName() << std::endl
+	<< "ClapTrap name: " << ClapTrap::getName() << std::endl;
+}
+
+std::string	DiamondTrap::getName(void) const
+{
+	return (_Name);
+}

@@ -1,3 +1,6 @@
+#ifndef FIXED_CPP
+#define FIXED_CPP
+
 #include<iostream>
 #include<cmath>
 
@@ -36,7 +39,7 @@ public:
 	static Fixed const&	max(Fixed &a, Fixed &b);
 	static Fixed const&	min(Fixed &a, Fixed &b);
 	int 	getRawBits( void ) const;
-	int 	getFractinalBits( void ) const;
+	int 	getFractionalBits( void ) const;
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 	void 	setRawBits( int const raw );
@@ -44,3 +47,5 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
+
+#endif

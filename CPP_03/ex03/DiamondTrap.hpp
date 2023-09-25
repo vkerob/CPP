@@ -8,11 +8,10 @@
 
 class DiamondTrap : public FragTrap, public ScavTrap
 {
-	protected:
 
 	private:
 
-		std::string	_name;
+		std::string	_Name;
 
 	public:
 		
@@ -21,6 +20,9 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		DiamondTrap(std::string name);
 		~DiamondTrap();
 		DiamondTrap	&operator=(DiamondTrap &rhs);
+		void whoAmI( void );
+
+		std::string	getName(void) const;
 
 };
 

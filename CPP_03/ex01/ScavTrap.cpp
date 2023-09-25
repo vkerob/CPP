@@ -6,7 +6,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 	setHitPoint(100);
 	setEnergyPoint(50);
 	setAttackDamage(20);
-	std::cout << "ScavTrap " << name << " created" << std::endl;
+	std::cout << "ScavTrap created" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -29,11 +29,13 @@ ScavTrap::~ScavTrap()
 
 ScavTrap	&ScavTrap::operator=(ScavTrap &rhs)
 {
-	/*if (this != &rhs)
+	if (this != &rhs)
 	{
-
-	}*/
-	(void)rhs;
+		this->setHitPoint(rhs.getHitPoint());
+		this->setEnergyPoint(rhs.getEnergyPoint());
+		this->setAttackDamage(rhs.getAttackDamage());
+		this->setKeerperMode(rhs.getKeeperMode());
+	}
 	return (*this);
 }
 

@@ -8,13 +8,13 @@ Fixed::Fixed() : _fixedValue(0)
 
 Fixed::Fixed(int int_number)
 {
-	_fixedValue = int_number << this->getFractinalBits();
+	_fixedValue = int_number << this->getFractionalBits();
 
 }
 
 Fixed::Fixed(float float_number)
 {
-	_fixedValue = static_cast<int>(roundf(float_number * (1 << this->getFractinalBits())));
+	_fixedValue = static_cast<int>(roundf(float_number * (1 << this->getFractionalBits())));
 	
 }
 
@@ -39,12 +39,12 @@ Fixed::~Fixed()
 
 int		Fixed::toInt( void ) const
 {
-	return (this->getRawBits() >> this->getFractinalBits());
+	return (this->getRawBits() >> this->getFractionalBits());
 }
 
 float	Fixed::toFloat( void ) const
 {
-	return (static_cast<float>(this->getRawBits() * (1 << this->getFractinalBits())));
+	return (static_cast<float>(this->getRawBits()) / static_cast<float>((1 << this->getFractionalBits())));
 }
 
 int Fixed::getRawBits( void ) const
@@ -52,7 +52,7 @@ int Fixed::getRawBits( void ) const
 	return (this->_fixedValue);
 }
 
-int Fixed::getFractinalBits( void ) const
+int Fixed::getFractionalBits( void ) const
 {
 	return (this->_fractionalBits);
 }
@@ -98,7 +98,7 @@ Fixed	&Fixed::operator=(Fixed const &rhs)
 
 std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 {
-	o << static_cast<float>(rhs.getRawBits()) / (1 << rhs.getFractinalBits());
+	o << static_cast<float>(rhs.getRawBits()) / static_cast<float>((1 << rhs.getFractionalBits()));
 	return (o);
 }
 
@@ -153,14 +153,14 @@ Fixed&	Fixed::operator-(Fixed const &rhs)
 Fixed	Fixed::operator*(Fixed const &rhs) const
 {
 	Fixed tmp;
-	tmp.setRawBits((this->getRawBits() * rhs.getRawBits()) >> this->getFractinalBits());
+	tmp.setRawBits((this->getRawBits() * rhs.getRawBits()) >> this->getFractionalBits());
 	return (tmp);
 }
 
 Fixed	Fixed::operator/(Fixed const &rhs) const
 {
 	Fixed tmp;
-	tmp.setRawBits((this->getRawBits() << this->getFractinalBits()) / rhs.getRawBits());
+	tmp.setRawBits((this->getRawBits() << this->getFractionalBits()) / rhs.getRawBits());
 	return (tmp);
 }
 
