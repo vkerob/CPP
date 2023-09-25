@@ -105,7 +105,7 @@ void	ClapTrap::setEnergyPoint(int value)
 	_Energy_point = value;
 }
 
-void	ClapTrap::setHAttackDamage(int value)
+void	ClapTrap::setAttackDamage(int value)
 {
 	_Attack_damage = value;
 }

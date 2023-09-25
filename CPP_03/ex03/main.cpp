@@ -1,6 +1,7 @@
 #include"ClapTrap.hpp"
 #include"ScavTrap.hpp"
 #include"FragTrap.hpp"
+#include"DiamondTrap.hpp"
 
 void	displayInfo(ClapTrap &clap)
 {
@@ -14,9 +15,10 @@ void	displayInfo(ClapTrap &clap)
 
 int	main(void)
 {
-	FragTrap npc1("gunsmith npc");
-	FragTrap npc2("farmer npc");
-	FragTrap npc3("librarian npc");
+	DiamondTrap npc1("gunsmith npc");
+	DiamondTrap npc2("farmer npc");
+	DiamondTrap npc3("librarian npc");
+	DiamondTrap npc4("guard npc");
 
 
 //---------------gunsmith npc---------------//
@@ -49,7 +51,16 @@ int	main(void)
 	npc3.beRepaired(5);
 	npc3.highFivesGuys();
 	displayInfo(npc3);
-	
+
+
+
+//---------------guard npc---------------//
+	std::cout << "\033[90m//---------------guard npc---------------//\033[0m" <<std::endl;
+	displayInfo(npc4);
+	while (npc4.getEnergyPoint() > 0)
+		npc4.guardGate();
+	npc4.guardGate();
+	displayInfo(npc4);
 
 
 }

@@ -35,7 +35,7 @@ public:
 
 	void	setHitPoint(int value);
 	void	setEnergyPoint(int value);
-	void	setHAttackDamage(int value);
+	void	setAttackDamage(int value);
 
 };
 
