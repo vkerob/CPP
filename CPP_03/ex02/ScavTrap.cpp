@@ -49,16 +49,9 @@ void	ScavTrap::setKeerperMode(int mode)
 
 void	ScavTrap::guardGate(void)
 {
-	if (getEnergyPoint() <= 0)
-		std::cout << "ScavTrap " << getName() << " doesn't have enough energy..." << std::endl;
-	else if (getHitPoint() <= 0)
-		std::cout << "ScavTrap " << getName() << " is dead, unfortunately he can't do anything..." << std::endl;
-	if (getEnergyPoint() <= 0 || getHitPoint() <= 0)
-		return ;
 	if (getKeeperMode() % 2 == 0)
 	{
 		setKeerperMode(1);
-		setEnergyPoint(getEnergyPoint() - 10);
 		std::cout << "ScavTrap is now in Gatekeeper mode" << std::endl;
 	}
 	else
