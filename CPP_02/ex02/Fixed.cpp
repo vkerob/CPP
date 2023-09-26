@@ -14,12 +14,12 @@ Fixed::Fixed(int int_number)
 
 Fixed::Fixed(float float_number)
 {
-	_fixedValue = static_cast<int>(roundf(float_number * (1 << this->getFractionalBits())));
-	
+	_fixedValue = (roundf(float_number * (1 << this->getFractionalBits())));
 }
 
 Fixed::Fixed(const Fixed &src)
 {
+	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
@@ -70,6 +70,20 @@ Fixed const&	Fixed::min(Fixed const &a, Fixed const &b)
 }
 
 Fixed const&	Fixed::max(Fixed const &a, Fixed const &b)
+{
+		if (b <= a)
+		return (a);
+	return (b);
+}
+
+Fixed const&	Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a <= b)
+		return (a);
+	return (b);
+}
+
+Fixed const&	Fixed::max(Fixed &a, Fixed &b)
 {
 		if (b <= a)
 		return (a);

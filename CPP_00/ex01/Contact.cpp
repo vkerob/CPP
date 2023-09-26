@@ -14,28 +14,28 @@ Contact::~Contact(void) {
 void	Contact::set_string(std::string str, std::string identifier)
 {
 	if (identifier == "first_name")
-		this->first_name = str;
+		this->_first_name = str;
 	else if (identifier == "last_name")
-		this->last_name = str;
+		this->_last_name = str;
 	else if (identifier == "nickname")
-		this->nickname = str;
+		this->_nickname = str;
 	else if (identifier == "phone_number")
-		this->phone_number = str;
+		this->_phone_number = str;
 	else if (identifier == "darkest_secret")
-		this->darkest_secret = str;
+		this->_darkest_secret = str;
 }
 
 std::string Contact::get_string(std::string identifier)
 {
 	if (identifier == "first_name")
-		return(this->first_name);
+		return(this->_first_name);
 	else if (identifier == "last_name")
-		return(this->last_name);
+		return(this->_last_name);
 	else if (identifier == "nickname")
-		return(this->nickname);
+		return(this->_nickname);
 	else if (identifier == "phone_number")
-		return(this->phone_number);
+		return(this->_phone_number);
 	else if (identifier == "darkest_secret")
-		return(this->darkest_secret);
+		return(this->_darkest_secret);
 	return ("");
 }

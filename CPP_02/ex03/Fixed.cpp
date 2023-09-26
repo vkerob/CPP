@@ -20,6 +20,7 @@ Fixed::Fixed(float float_number)
 
 Fixed::Fixed(const Fixed &src)
 {
+	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
