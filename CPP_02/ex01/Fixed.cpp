@@ -39,7 +39,7 @@ Fixed	&Fixed::operator=(Fixed const &rhs)
 
 std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 {
-	o << static_cast<float>(rhs.getRawBits()) / static_cast<float>((1 << rhs.getFractionalBits()));
+	o << static_cast<float>(rhs.getRawBits()) / (1 << rhs.getFractionalBits());
 	return (o);
 }
 
@@ -50,7 +50,7 @@ int		Fixed::toInt( void ) const
 
 float	Fixed::toFloat( void ) const
 {
-	return (static_cast<float>(this->getRawBits()) / static_cast<float>((1 << this->getFractionalBits())));
+	return (static_cast<float>(this->getRawBits()) / (1 << this->getFractionalBits()));
 }
 
 int Fixed::getRawBits( void ) const

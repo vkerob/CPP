@@ -44,7 +44,7 @@ int		Fixed::toInt( void ) const
 
 float	Fixed::toFloat( void ) const
 {
-	return (static_cast<float>(this->getRawBits()) / static_cast<float>((1 << this->getFractionalBits())));
+	return (static_cast<float>(this->getRawBits()) / (1 << this->getFractionalBits()));
 }
 
 int Fixed::getRawBits( void ) const

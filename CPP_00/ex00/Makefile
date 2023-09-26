@@ -6,10 +6,10 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC = megaphone.cpp
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	@$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME) : $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)

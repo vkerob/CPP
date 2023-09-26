@@ -45,7 +45,9 @@ void Fixed::setRawBits( int const raw )
 	this->_fixedValue = raw;
 }
 
-// constructeur et destructeur opereteur
+
+
+// opereteur
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
