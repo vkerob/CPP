@@ -10,7 +10,7 @@ Dog::Dog()
 	std::cout << "Dog was created" <<std::endl;
 }
 
-Dog::Dog( const Dog & src )
+Dog::Dog( const Dog & src ) : Animal(src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
@@ -51,7 +51,7 @@ std::ostream &			operator<<( std::ostream & o, Dog const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound(void) const
+void	Dog::makeSound(void) const
 {
 	std::cout << "wouf" << std::endl;
 }

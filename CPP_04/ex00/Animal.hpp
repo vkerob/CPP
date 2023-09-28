@@ -15,7 +15,7 @@ class Animal
 
 		Animal();
 		Animal( Animal const & src );
-		~Animal();
+		virtual ~Animal();
 
 
 		Animal &		operator=( Animal const & rhs );

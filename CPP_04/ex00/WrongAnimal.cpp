@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal() : _type("")
 {
 	std::cout << "WrongAnimal was created" <<std::endl;
 }
@@ -50,7 +50,10 @@ std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-
+void	WrongAnimal::makeSound(void) const
+{
+	std::cout << "..." << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

@@ -5,7 +5,7 @@
 # include <iostream>
 # include <string>
 
-class WrongCat : WrongAnimal()
+class WrongCat : public WrongAnimal
 {
 
 	public:
@@ -16,8 +16,8 @@ class WrongCat : WrongAnimal()
 
 		WrongCat &		operator=( WrongCat const & rhs );
 
-	private:
 
+		void	makeSound(void) const;
 };
 
 std::ostream &			operator<<( std::ostream & o, WrongCat const & i );

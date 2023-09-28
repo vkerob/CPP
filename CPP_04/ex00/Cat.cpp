@@ -10,7 +10,7 @@ Cat::Cat() : Animal()
 	std::cout << "Cat was created" <<std::endl;
 }
 
-Cat::Cat( const Cat & src )
+Cat::Cat( const Cat & src ) : Animal(src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
@@ -51,7 +51,7 @@ std::ostream &			operator<<( std::ostream & o, Cat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound(void) const
+void	Cat::makeSound(void) const
 {
 	std::cout << "miaou" << std::endl;
 }

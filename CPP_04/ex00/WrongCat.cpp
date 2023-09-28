@@ -4,12 +4,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal()
 {
 	std::cout << "WrongCat was created" <<std::endl;
 }
 
-WrongCat::WrongCat( const WrongCat & src )
+WrongCat::WrongCat( const WrongCat & src ) : WrongAnimal(src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
@@ -50,6 +50,10 @@ std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	WrongCat::makeSound(void) const
+{
+	std::cout << "miaou" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

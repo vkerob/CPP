@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
+Animal::Animal() : _type("")
 {
 	std::cout << "Animal was created" <<std::endl;
 }
