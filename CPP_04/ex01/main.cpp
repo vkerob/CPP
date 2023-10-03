@@ -30,14 +30,25 @@ int main()
 	delete cat;*/
 
 	Cat *cat1 = new Cat();
-	(cat1)->setBrainString("cat1", 0);
-	std::cout << (cat1)->getBrainString(0) << std::endl;
+	cat1->setBrainString("cat1", 0);
+	std::cout << std::endl;
+	std::cout << "string at index 0 of cat1: " << cat1->getBrainString(0) << std::endl;
+	std::cout << std::endl;
 	Cat	*cat2 = new Cat(*cat1);
-	delete cat1;
+	
 
-	std::cout << (cat2)->getBrainString(0) << std::endl;
+	delete cat1;
+	std::cout << std::endl;
+	std::cout << "string at index 0 of cat2: " << cat2->getBrainString(0) << std::endl;
+	std::cout << std::endl;
+
+
+	Cat *cat3 = cat2;
 	delete cat2;
 	std::cout << std::endl;
+	std::cout << "string at index 0 of cat3: " << cat3->getBrainString(0) << std::endl;
+	std::cout << std::endl;
+
 	return 0;
 
 }
