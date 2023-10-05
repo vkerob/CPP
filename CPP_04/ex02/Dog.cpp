@@ -1,19 +1,19 @@
-#include "Cat.hpp"
+#include "Dog.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat() : Animal()
+Dog::Dog()
 {
-	setType("Cat");
+	setType("Dog");
 	_brain = new Brain();
-	std::cout << "Cat was created" <<std::endl;
+	std::cout << "Dog was created" <<std::endl;
 }
 
-Cat::Cat( const Cat & src ) : Animal(src)
+Dog::Dog( const Dog & src ) : AAnimal(src)
 {
-	std::cout << "Cat Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	_brain = new Brain(*src._brain);
 }
 
@@ -22,10 +22,10 @@ Cat::Cat( const Cat & src ) : Animal(src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cat::~Cat()
+Dog::~Dog()
 {
 	delete _brain;
-	std::cout << "Cat was destroyed" <<std::endl;
+	std::cout << "Dog was destroyed" <<std::endl;
 }
 
 
@@ -33,18 +33,18 @@ Cat::~Cat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat &				Cat::operator=( Cat const & rhs )
+Dog &				Dog::operator=( Dog const & rhs )
 {
 	if ( this != &rhs )
 	{
-		Animal::operator=(rhs);
+		AAnimal::operator=(rhs);
 		delete _brain;
 		_brain = new Brain(*rhs._brain);
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
+std::ostream &			operator<<( std::ostream & o, Dog const & i )
 {
 	o << "type = " << i.getType();
 	return o;
@@ -55,16 +55,16 @@ std::ostream &			operator<<( std::ostream & o, Cat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Cat::makeSound(void) const
+void	Dog::makeSound(void) const
 {
-	std::cout << "miaou" << std::endl;
+	std::cout << "wouf" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void		Cat::setBrainString(std::string str, int i)
+void		Dog::setBrainString(std::string str, int i)
 {
 	if (i < 0 || i > 99)
 	{
@@ -74,11 +74,12 @@ void		Cat::setBrainString(std::string str, int i)
 	_brain->setIdeasString(str, i);
 }
 
-std::string	Cat::getBrainString(int i) const
+std::string	Dog::getBrainString(int i) const
 {
 	if (i < 0 || i > 99)
 		return ("out of range");
-	return (_brain->getIdeasString(i));
+	return(_brain->getIdeasString(i));
 }
+
 
 /* ************************************************************************** */

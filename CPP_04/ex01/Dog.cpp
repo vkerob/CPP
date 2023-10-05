@@ -14,8 +14,7 @@ Dog::Dog()
 Dog::Dog( const Dog & src ) : Animal(src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	_brain = new Brain();
-	*this = src;
+	_brain = new Brain(*src._brain);
 }
 
 
@@ -38,7 +37,9 @@ Dog &				Dog::operator=( Dog const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_type = rhs.getType();
+		Animal::operator=(rhs);
+		delete _brain;
+		_brain = new Brain(*rhs._brain);
 	}
 	return *this;
 }
@@ -65,11 +66,18 @@ void	Dog::makeSound(void) const
 
 void		Dog::setBrainString(std::string str, int i)
 {
+	if (i < 0 || i > 99)
+	{
+		std::cout << "out of range" << std::endl;
+		return;
+	}
 	_brain->setIdeasString(str, i);
 }
 
 std::string	Dog::getBrainString(int i) const
 {
+	if (i < 0 || i > 99)
+		return ("out of range");
 	return(_brain->getIdeasString(i));
 }
 

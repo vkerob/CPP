@@ -4,14 +4,14 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat() : Animal()
+Cat::Cat() : AAnimal()
 {
 	setType("Cat");
 	_brain = new Brain();
 	std::cout << "Cat was created" <<std::endl;
 }
 
-Cat::Cat( const Cat & src ) : Animal(src)
+Cat::Cat( const Cat & src ) : AAnimal(src)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
 	_brain = new Brain(*src._brain);
@@ -37,7 +37,7 @@ Cat &				Cat::operator=( Cat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		Animal::operator=(rhs);
+		AAnimal::operator=(rhs);
 		delete _brain;
 		_brain = new Brain(*rhs._brain);
 	}

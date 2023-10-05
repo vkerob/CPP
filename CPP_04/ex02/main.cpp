@@ -1,4 +1,4 @@
-#include"Animal.hpp"
+#include"AAnimal.hpp"
 #include"Cat.hpp"
 #include"Dog.hpp"
 #include"WrongAnimal.hpp"
@@ -10,10 +10,10 @@ int main()
 /*-----------------------------------Test polymorphisme------------------------------------*/
 	
 	
-	Animal *array[10];
+	AAnimal *array[10];
 
-	Animal *dog = new Dog();
-	Animal *cat = new Cat();
+	AAnimal *dog = new Dog();
+	AAnimal *cat = new Cat();
 
 	std::cout << std::endl;
 	((Dog *)dog)->setBrainString("test", 0);
@@ -30,6 +30,12 @@ int main()
 	
 	delete dog;
 	delete cat;
+
+
+/*-----------------------------------Test class abstraite------------------------------------*/
+
+
+	//AAnimal animal;
 
 
 /*-----------------------------------Test copy construteur/ operateur=------------------------------------*/
@@ -67,8 +73,8 @@ int main()
 
 	tmp.setBrainString("cat3", 0);
 
-	Animal *cat3 = &tmp;
-	Animal *cat4 = cat3;
+	AAnimal *cat3 = &tmp;
+	AAnimal *cat4 = cat3;
 
 	std::cout << std::endl;
 	std::cout << ((Cat *)cat4)->getBrainString(0) << std::endl;
@@ -78,26 +84,6 @@ int main()
 /*-----------------------------------Test WrongCat/WrongAnimal------------------------------------*/
 	
 
-	/*WrongCat *wrongCat1 = new WrongCat();
-	wrongCat1->setBrainString("wrongCat1", 0);
-	wrongCat1->setBrainString("wrongCat1", -5);
-	wrongCat1->setBrainString("wrongCat1", 150);
-	for (int i = 0; i < 100; i++){
-		wrongCat1->setBrainString("cat1", i);
-	}
-	std::cout << std::endl;
-	std::cout << "string at index 0 of wrongCat1: " << wrongCat1->getBrainString(0) << std::endl;
-	std::cout << std::endl;
-	WrongCat *wrongCat2 = new WrongCat(*wrongCat1); 
-
-	//delete wrongCat1;
-	wrongCat2->makeSound();
-	std::cout << std::endl;
-	for (int i = -2; i < 102; i++){
-		std::cout << "string at index " << i << " of wrongCat2: " << wrongCat2->getBrainString(i) << std::endl;
-	}
-	std::cout << std::endl;
-	delete wrongCat2;*/
-
+	WrongAnimal wrongAnimal;
 
 }
