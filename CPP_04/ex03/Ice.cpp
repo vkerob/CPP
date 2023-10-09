@@ -1,14 +1,14 @@
-#include "ICharacter.hpp"
+#include "Ice.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ICharacter::ICharacter()
+Ice::Ice()
 {
 }
 
-ICharacter::ICharacter( const ICharacter & src )
+Ice::Ice( const Ice & src )
 {
 }
 
@@ -17,7 +17,7 @@ ICharacter::ICharacter( const ICharacter & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ICharacter::~ICharacter()
+Ice::~Ice()
 {
 }
 
@@ -26,7 +26,7 @@ ICharacter::~ICharacter()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ICharacter &				ICharacter::operator=( ICharacter const & rhs )
+Ice &				Ice::operator=( Ice const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -35,7 +35,7 @@ ICharacter &				ICharacter::operator=( ICharacter const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
+std::ostream &			operator<<( std::ostream & o, Ice const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
@@ -45,6 +45,16 @@ std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+AMateria*	Ice::clone() const
+{
+
+}
+
+void 		Ice::use(ICharacter& target)
+{
+ 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
 
 
 /*

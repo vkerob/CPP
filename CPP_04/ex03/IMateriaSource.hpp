@@ -11,10 +11,13 @@ class IMateriaSource
 
 		IMateriaSource();
 		IMateriaSource( IMateriaSource const & src );
-		~IMateriaSource();
+		virtual	~IMateriaSource();
 
 		IMateriaSource &		operator=( IMateriaSource const & rhs );
 
+
+		virtual void 		learnMateria(AMateria*) = 0;
+		virtual AMateria*	createMateria(std::string const & type) = 0;
 	private:
 
 };
