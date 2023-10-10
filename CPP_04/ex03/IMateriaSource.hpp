@@ -3,17 +3,15 @@
 
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
 
+class AMateria;
 class IMateriaSource
 {
 
 	public:
 
-		IMateriaSource();
-		IMateriaSource( IMateriaSource const & src );
-		virtual	~IMateriaSource();
-
-		IMateriaSource &		operator=( IMateriaSource const & rhs );
+		virtual	~IMateriaSource() {}
 
 
 		virtual void 		learnMateria(AMateria*) = 0;

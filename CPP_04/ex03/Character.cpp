@@ -6,15 +6,14 @@
 
 Character::Character(std::string name)
 {
-	inventory[0] = NULL;
-	inventory[1] = NULL;
-	inventory[2] = NULL;
-	inventory[3] = NULL;
+	_name = name;
+	for (int i = 0; i < 4; i++)
+        _inventory[i] = NULL;
 }
 
 Character::Character( const Character & src )
 {
-	
+	*this = src;
 }
 
 
@@ -24,6 +23,14 @@ Character::Character( const Character & src )
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i])
+		{
+			delete _inventory[i];
+			_inventory[i] = NULL;
+		}
+	}
 }
 
 
@@ -33,16 +40,26 @@ Character::~Character()
 
 Character &				Character::operator=( Character const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (_inventory[i])
+			{
+				delete _inventory[i];
+				_inventory[i] = NULL;
+			}
+			if (rhs._inventory[i])
+				_inventory[i] = rhs._inventory[i]->clone();
+		}
+		_name = rhs._name;
+	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Character const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << "name = " << i.getName();
 	return o;
 }
 
@@ -56,22 +73,29 @@ void Character::equip(AMateria* m)
 	for (int i = 0; i < 4; i++)
 	{
 		//new m ?
-		if (inventory[i] == NULL)
-			inventory[i] = m;
+		if (_inventory[i] == NULL)
+		{
+			_inventory[i] = m;
+			_inventory[i]->setEquipeOrNot(1);
+			return ;
+		}
 	}
 }
 
 
 void Character::unequip(int idx)
 {
-	if (inventory[idx] != NULL)
-		inventory[idx] = NULL;
+	if (_inventory[idx] != NULL)
+	{
+		_inventory[idx]->setEquipeOrNot(0);
+		_inventory[idx] = NULL;
+	}
 }
 
 
 void Character::use(int idx, ICharacter& target)
 {
-	inventory[idx]->use(target);
+	_inventory[idx]->use(target);
 }
 
 /*
@@ -80,7 +104,7 @@ void Character::use(int idx, ICharacter& target)
 
 std::string const & Character::getName() const
 {
-	
+	return (_name);
 }
 
 /* ************************************************************************** */

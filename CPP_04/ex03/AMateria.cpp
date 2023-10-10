@@ -4,14 +4,21 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+AMateria::AMateria()
+{
+	this->type = "default";
+	equipeOrNot = 0;
+}
+
 AMateria::AMateria(std::string const &type)
 {
 	this->type = type;
+	equipeOrNot = 0;
 }
 
 AMateria::AMateria( const AMateria & src )
 {
-
+	*this = src;
 }
 
 
@@ -33,14 +40,15 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->type = rhs.getType();
+		type = rhs.getType();
+		equipeOrNot = rhs.equipeOrNot;
 	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << "Type = " << i.getType();
 	return o;
 }
 
@@ -51,7 +59,8 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 
 void 		AMateria::use(ICharacter& target)
 {
-	
+	(void) target;
+	std::cout << "default materia" << std::endl;
 }
 
 /*
@@ -61,6 +70,11 @@ void 		AMateria::use(ICharacter& target)
 std::string const & AMateria::getType() const
 {
 	return (type);
+}
+
+void	AMateria::setEquipeOrNot(int i)
+{
+	equipeOrNot = i;
 }
 
 

@@ -6,10 +6,15 @@
 
 MateriaSource::MateriaSource()
 {
+	_inventory[0] = NULL;
+	_inventory[1] = NULL;
+	_inventory[2] = NULL;
+	_inventory[3] = NULL;
 }
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
+	*this = src;
 }
 
 
@@ -19,6 +24,14 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] != NULL)
+		{
+			delete _inventory[i];
+			_inventory[i] = NULL;
+		}
+	}
 }
 
 
@@ -28,32 +41,60 @@ MateriaSource::~MateriaSource()
 
 MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (_inventory[i])
+			{
+				delete _inventory[i];
+				_inventory[i] = NULL;
+			}
+			if (rhs._inventory[i])
+				_inventory[i] = rhs._inventory[i]->clone();
+		}
+	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
+// std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
+// {
+// 	o << "Value = " << ;
+// 	return o;
+// }
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void 		MateriaSource::learnMateria(AMateria*)
+void 		MateriaSource::learnMateria(AMateria* materia)
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] == NULL)
+		{
+			_inventory[i] = materia;
+			return ;
+		}
+	}
+	delete materia;
+	std::cout << "not enougth space in inventory" << std::endl;
 
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
-
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] != NULL)
+		{
+			if (_inventory[i]->getType() == type)
+				return (_inventory[i]->clone());
+		}
+	}
+	std::cout << "materia has not been learn" << std::endl;
+	return NULL;
 }
 
 /*

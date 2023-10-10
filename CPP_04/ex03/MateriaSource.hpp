@@ -9,6 +9,10 @@
 class MateriaSource : public IMateriaSource
 {
 
+	private:
+
+		AMateria *_inventory[4];
+
 	public:
 
 		MateriaSource();
@@ -23,6 +27,6 @@ class MateriaSource : public IMateriaSource
 
 };
 
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i );
+//std::ostream &			operator<<( std::ostream & o, MateriaSource const & i );
 
 #endif /* *************************************************** MATERIASOURCE_H */

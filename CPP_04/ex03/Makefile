@@ -2,12 +2,15 @@ NAME = a.out
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g  -Wno-shadow
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g -Wno-shadow
 
 SRC = main.cpp \
 		AMateria.cpp \
-		ICharacter.cpp \
-		IMateriaSource.cpp \
+		Character.cpp \
+		MateriaSource.cpp \
+		Cure.cpp \
+		Ice.cpp \
+
 
 OBJ = $(SRC:.cpp=.o)
 

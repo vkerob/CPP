@@ -4,12 +4,14 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice()
+Ice::Ice() : AMateria("ice")
 {
+
 }
 
-Ice::Ice( const Ice & src )
+Ice::Ice( const Ice & src ) : AMateria(src)
 {
+	*this = src;
 }
 
 
@@ -19,6 +21,7 @@ Ice::Ice( const Ice & src )
 
 Ice::~Ice()
 {
+
 }
 
 
@@ -28,16 +31,17 @@ Ice::~Ice()
 
 Ice &				Ice::operator=( Ice const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		AMateria::operator=(rhs);
+		type = "ice";
+	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Ice const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << "Type = " << i.getType();
 	return o;
 }
 
@@ -48,7 +52,7 @@ std::ostream &			operator<<( std::ostream & o, Ice const & i )
 
 AMateria*	Ice::clone() const
 {
-
+	return (new Ice(*this));
 }
 
 void 		Ice::use(ICharacter& target)

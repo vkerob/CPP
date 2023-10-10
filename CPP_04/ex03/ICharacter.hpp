@@ -3,20 +3,16 @@
 
 # include <iostream>
 # include <string>
-# include "ICharacter.hpp"
 # include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
 
 	public:
 
-		ICharacter();
-		ICharacter( ICharacter const & src );
-		virtual	~ICharacter();
-
-
-		ICharacter &		operator=( ICharacter const & rhs );
+		virtual	~ICharacter() {}
 
 
 		virtual std::string const & getName() const = 0;

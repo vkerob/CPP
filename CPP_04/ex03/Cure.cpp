@@ -4,14 +4,14 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure()
+Cure::Cure() : AMateria("cure")
 {
 
 }
 
-Cure::Cure( const Cure & src )
+Cure::Cure( const Cure & src ) : AMateria(src)
 {
-
+	*this = src;
 }
 
 
@@ -30,16 +30,17 @@ Cure::~Cure()
 
 Cure &				Cure::operator=( Cure const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		AMateria::operator=(rhs);
+		type = "ice";
+	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Cure const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << "Type = " << i.getType();
 	return o;
 }
 
@@ -50,7 +51,7 @@ std::ostream &			operator<<( std::ostream & o, Cure const & i )
 
 AMateria*	Cure::clone() const
 {
-
+	return (new Cure(*this));
 }
 
 void 		Cure::use(ICharacter& target)
