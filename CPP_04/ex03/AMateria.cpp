@@ -72,9 +72,9 @@ std::string const & AMateria::getType() const
 	return (type);
 }
 
-void	AMateria::setEquipeOrNot(int i)
+void	AMateria::setEquipeOrNot(void)
 {
-	equipeOrNot = i;
+	equipeOrNot = !equipeOrNot;
 }
 
 

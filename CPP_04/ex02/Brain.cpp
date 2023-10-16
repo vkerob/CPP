@@ -60,11 +60,18 @@ std::ostream &			operator<<( std::ostream & o, Brain const & i )
 
 void	Brain::setIdeasString(std::string str, int i)
 {
+	if (i < 0 || i > 99)
+	{
+		std::cout << "out of range" << std::endl;
+		return;
+	}
 	_ideas[i] = str;
 }
 
 std::string	Brain::getIdeasString(int i) const
 {
+	if (i < 0 || i > 99)
+		return ("out of range");
 	return (_ideas[i]);
 }
 

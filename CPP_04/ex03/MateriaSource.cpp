@@ -78,7 +78,6 @@ void 		MateriaSource::learnMateria(AMateria* materia)
 			return ;
 		}
 	}
-	delete materia;
 	std::cout << "not enougth space in inventory" << std::endl;
 
 }

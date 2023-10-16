@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog()
+Dog::Dog() : AAnimal()
 {
 	setType("Dog");
 	_brain = new Brain();

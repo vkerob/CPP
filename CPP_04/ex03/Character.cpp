@@ -72,11 +72,10 @@ void Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		//new m ?
 		if (_inventory[i] == NULL)
 		{
 			_inventory[i] = m;
-			_inventory[i]->setEquipeOrNot(1);
+			_inventory[i]->setEquipeOrNot();
 			return ;
 		}
 	}
@@ -85,9 +84,14 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
+	if (idx < 0 || idx > 4)
+	{
+		std::cout << "out of range" << std::endl;
+		return ;
+	}
 	if (_inventory[idx] != NULL)
 	{
-		_inventory[idx]->setEquipeOrNot(0);
+		_inventory[idx]->setEquipeOrNot();
 		_inventory[idx] = NULL;
 	}
 }
@@ -95,6 +99,11 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
+	if (idx < 0 || idx > 4)
+	{
+		std::cout << "out of range" << std::endl;
+		return ;
+	}
 	_inventory[idx]->use(target);
 }
 

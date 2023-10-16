@@ -1,19 +1,15 @@
-#include "Dog.hpp"
+#include "Form.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() : Animal()
+Form::Form()
 {
-	setType("Dog");
-	std::cout << "Dog was created" <<std::endl;
 }
 
-Dog::Dog( const Dog & src ) : Animal(src)
+Form::Form( const Form & src )
 {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
 }
 
 
@@ -21,9 +17,8 @@ Dog::Dog( const Dog & src ) : Animal(src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+Form::~Form()
 {
-	std::cout << "Dog was destroyed" <<std::endl;
 }
 
 
@@ -31,18 +26,18 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const & rhs )
+Form &				Form::operator=( Form const & rhs )
 {
-	if ( this != &rhs )
-	{
-		this->_type = rhs.getType();
-	}
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
+std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
-	o << "type = " << i.getType();
+	//o << "Value = " << i.getValue();
 	return o;
 }
 
@@ -51,15 +46,10 @@ std::ostream &			operator<<( std::ostream & o, Dog const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Dog::makeSound(void) const
-{
-	std::cout << "wouf" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
 
 
 /* ************************************************************************** */

@@ -1,19 +1,15 @@
-#include "Dog.hpp"
+#include "Bureaucrat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() : Animal()
+Bureaucrat::Bureaucrat()
 {
-	setType("Dog");
-	std::cout << "Dog was created" <<std::endl;
 }
 
-Dog::Dog( const Dog & src ) : Animal(src)
+Bureaucrat::Bureaucrat( const Bureaucrat & src )
 {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
 }
 
 
@@ -21,9 +17,8 @@ Dog::Dog( const Dog & src ) : Animal(src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Dog was destroyed" <<std::endl;
 }
 
 
@@ -31,18 +26,19 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const & rhs )
+Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_type = rhs.getType();
+		this->_grade = rhs.getGrade();
+		this->_name = rhs.getName();
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
+std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 {
-	o << "type = " << i.getType();
+	o << i.getName << "  bureaucrat grade " << i.getGrade();
 	return o;
 }
 
@@ -51,15 +47,29 @@ std::ostream &			operator<<( std::ostream & o, Dog const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Dog::makeSound(void) const
+void	Bureaucrat::increaseGrade(void)
 {
-	std::cout << "wouf" << std::endl;
+	_grade--;
+}
+
+void	Bureaucrat::decreaseGrade(void)
+{
+	_grade++;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string	Bureaucrat::getName(void)
+{
+	return (_name);
+}
+
+int			Bureaucrat::getGrade(void)
+{
+	return (_grade);
+}
 
 
 /* ************************************************************************** */

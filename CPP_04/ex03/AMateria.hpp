@@ -12,7 +12,7 @@ class AMateria
 	protected:
 
 		std::string	type;
-		int			equipeOrNot;
+		bool		equipeOrNot;
 
 	public:
 
@@ -25,7 +25,7 @@ class AMateria
 
 
 		std::string const & getType() const;
-		void				setEquipeOrNot(int i);
+		void				setEquipeOrNot( void );
 
 
 		virtual AMateria*	clone() const = 0;
