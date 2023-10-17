@@ -5,7 +5,7 @@ CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g -Wno-shadow
 
 SRC = main.cpp \
-		Bureaucrat,cpp \
+		Bureaucrat.cpp \
 
 
 OBJ = $(SRC:.cpp=.o)

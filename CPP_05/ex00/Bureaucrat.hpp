@@ -15,12 +15,35 @@ class Bureaucrat
 	public:
 
 		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat( Bureaucrat const & src );
 		~Bureaucrat();
 
 
-		std::string	getName(void);
-		int			getGrade(void);
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return ("Grade too low");
+				}
+		};
+
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return ("Grade too high");
+				}
+		};
+
+
+		void		setName(std::string name);
+		void		setGrade(int grade);
+		std::string	getName(void) const;
+		int			getGrade(void) const;
 
 
 		Bureaucrat &		operator=( Bureaucrat const & rhs );
