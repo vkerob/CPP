@@ -35,7 +35,7 @@ int main()
 /*-----------------------------------Test class abstraite------------------------------------*/
 
 
-	//AAnimal animal;
+	AAnimal animal;
 
 
 /*-----------------------------------Test copy construteur/ operateur=------------------------------------*/

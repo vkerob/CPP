@@ -1,10 +1,6 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
-Form::Form()
+AForm::AForm()
 	: _name("default"),
 	_isSigned(0),
 	_gradeExec(150),
@@ -12,19 +8,19 @@ Form::Form()
 {
 }
 
-Form::Form(std::string name, int gradeToSigned, int gradeToExec) 
+AForm::AForm(std::string name, int gradeToSigned, int gradeToExec) 
 	:  _name(name),
 	_isSigned(0),
 	_gradeExec(gradeToExec),
 	_gradeSign(gradeToSigned)
 {
 	if (gradeToSigned > 150 || gradeToExec > 150)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	else if (gradeToSigned < 1 || gradeToExec < 1)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
-Form::Form( const Form & src ) 
+AForm::AForm( const AForm & src ) 
 	: _name(src.getName()),
 	_isSigned(src.getIsSigned()),
 	_gradeExec(src.getGradeToExec()),
@@ -37,7 +33,7 @@ Form::Form( const Form & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Form::~Form()
+AForm::~AForm()
 {
 }
 
@@ -46,7 +42,7 @@ Form::~Form()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Form &				Form::operator=( Form const & rhs )
+AForm &				AForm::operator=( AForm const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -55,20 +51,21 @@ Form &				Form::operator=( Form const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Form const & i )
+std::ostream &			operator<<( std::ostream & o, AForm const & i )
 {
 	o << "name: " << i.getName() << std::endl;
 	o << "signed: " << i.getIsSigned() << std::endl;
+
 	if (i.getGradeToSign() > 150)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	else if (i.getGradeToSign() < 1)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else
 		o << "grade to sign: " << i.getGradeToSign() << std::endl;
 	if (i.getGradeToExec() > 150)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	else if (i.getGradeToExec() < 1)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else
 		o << "grade to exec: " << i.getGradeToExec() << std::endl;
 	return o;
@@ -79,38 +76,32 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Form::beSigned(Bureaucrat b)
-{
-	if (b.getGrade() <= getGradeToSign())
-		setIsSigned();
-}
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void	Form::setIsSigned(void)
+void	AForm::setIsSigned(void)
 {
 	_isSigned = true;
 }
 
 
-std::string	Form::getName(void) const
+std::string	AForm::getName(void) const
 {
 	return (_name);
 }
 
-int			Form::getGradeToSign(void) const
+int			AForm::getGradeToSign(void) const
 {
 	return (_gradeSign);
 }
 
-int			Form::getGradeToExec(void) const
+int			AForm::getGradeToExec(void) const
 {
 	return (_gradeExec);
 }
 
-int			Form::getIsSigned(void) const
+int			AForm::getIsSigned(void) const
 {
 	return (_isSigned);
 }

@@ -3,6 +3,8 @@
 
 int	main ()
 {
+	try
+	{
 	Bureaucrat	lol1("lol1", 0);
 	Bureaucrat	lol2("lol2", 1);
 	Bureaucrat	lol3("lol3", 150);
@@ -25,6 +27,11 @@ int	main ()
 	lol5.decreaseGrade();
 	std::cout << lol5 << std::endl;
 	lol5.signForm(test1);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Error : " << e.what() << std::endl;
+	}
 
 
 }

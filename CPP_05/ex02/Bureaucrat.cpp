@@ -76,7 +76,7 @@ void	Bureaucrat::decreaseGrade(void)
 		_grade++;
 }
 
-void	Bureaucrat::signForm(Form f)
+void	Bureaucrat::signForm(AForm &f)
 {
 	f.beSigned(*this);
 	if (!f.getIsSigned())
@@ -85,6 +85,12 @@ void	Bureaucrat::signForm(Form f)
 	else
 		std::cout << getName() << " signed "
 		<< f.getName() << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	form.execute(*this);
+	std::cout << getName() << " executed " << form.getName() << std::endl;
 }
 
 /*
