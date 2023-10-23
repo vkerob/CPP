@@ -34,10 +34,14 @@ public:
 	Fixed	operator++(int);
 	Fixed&	operator--();
 	Fixed	operator--(int);
+
+
 	static Fixed const&	max(Fixed const &a, Fixed const &b);
 	static Fixed const&	min(Fixed const &a, Fixed const &b);
 	static Fixed const&	max(Fixed &a, Fixed &b);
 	static Fixed const&	min(Fixed &a, Fixed &b);
+
+	
 	int 	getRawBits( void ) const;
 	int 	getFractionalBits( void ) const;
 	float	toFloat( void ) const;

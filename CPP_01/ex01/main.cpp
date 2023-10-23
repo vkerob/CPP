@@ -8,11 +8,14 @@ int	main(void)
 	Zombie *horde;
 	int 	i = 0;
 
-	horde = zombieHorde(4, "foo");
-	while (i < 4)
+	horde = zombieHorde(-4, "foo");
+	if (horde != NULL)
 	{
-		horde[i].announce();
-		i++;
+		while (i < 4)
+		{
+			horde[i].announce();
+			i++;
+		}
+		delete[] horde;
 	}
-	delete[] horde;
 }

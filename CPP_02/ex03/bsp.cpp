@@ -7,7 +7,7 @@ int	CheckPointInside(Point const &v1, Point const &v2, Point const &point)
 }
 
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+bool bsp( Point const &a, Point const &b, Point const &c, Point const &point)
 {
 	int	result_ab = CheckPointInside(a, b, point);
 	int	result_bc = CheckPointInside(b, c, point);

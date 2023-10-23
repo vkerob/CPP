@@ -1,8 +1,8 @@
 NAME = a.out
 
-CC = c++
+CC = clang++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g -Wno-shadow
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 SRC = main.cpp \
 		ScalarConverter.cpp \

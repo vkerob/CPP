@@ -47,7 +47,6 @@ void	ScalarConverter::convertToChar(int nb_int, float nb_float, double nb_double
 		c = static_cast<char>(nb_float);
 	else
 		c = static_cast<char>(nb_double);
-	
 	if (type == 1)
 	{
 		if (nb_int > 20 && nb_int < 126)
@@ -79,9 +78,23 @@ void	ScalarConverter::convertToInt(char c, float nb_float, double nb_double, int
 	if (type == 0)
 		nb = static_cast<int>(c);
 	else if (type == 2)
+	{
+		if (nb_float >= FLOAT_MAX || nb_float <= FLOAT_MIN)
+		{
+			std::cout << "int: overflow/underflow" << std::endl;
+			return ;
+		}
 		nb = static_cast<int>(nb_float);
+	}
 	else
+	{
+		if (nb_double > DOUBLE_MAX || nb_double < DOUBLE_MIN)
+		{
+			std::cout << "int: overflow/underflow" << std::endl;
+			return ;
+		}
 		nb = static_cast<int>(nb_double);
+	}
 	std::cout << "int: " << nb << std::endl;
 
 
@@ -97,11 +110,7 @@ void	ScalarConverter::convertToFloat(char c, int nb_int, double nb_double, int t
 		nb = static_cast<float>(nb_int);
 	else 
 		nb = static_cast<float>(nb_double);
-	std::cout << "float: " << nb;
-	if (type == 0 || type == 1)
-		std::cout << ".0f" << std::endl;
-	else if (type == 3)
-		std::cout << "f" << std::endl;
+	std::cout << "float: " << nb << "f" << std::endl;
 }
 
 void	ScalarConverter::convertToDouble(char c, int nb_int, float nb_float, int type)
@@ -114,11 +123,7 @@ void	ScalarConverter::convertToDouble(char c, int nb_int, float nb_float, int ty
 		nb = static_cast<double>(nb_int);
 	else
 		nb = static_cast<double>(nb_float);
-	std::cout << "double: " << nb;
-	if (type == 0 || type == 1)
-		std::cout << ".0" << std::endl;
-	else
-		std::cout << std::endl;
+	std::cout << "double: " << nb << std::endl;
 	
 }
 
@@ -128,19 +133,25 @@ void	ScalarConverter::ConvertAll(int type_nb, const std::string& str)
 	int		nb_int;
 	float	nb_float;
 	double	nb_double;
-	// c'est une chaine de caracteres
-
-	// c'est un int
 	if ((type_nb == 0 && str.length() > 1) || (str.length() == 1 && isdigit(str[0])))
 	{
-
+		nb_double = static_cast<double>(strtod(str.c_str(), 0));
 		nb_int = atoi(str.c_str());
-		convertToChar(nb_int, 0, 0, 1);
-		std::cout << "int: " << nb_int << std::endl;
-		convertToFloat(0, nb_int, 0, 1);
-		convertToDouble(0, nb_int, 0, 1);
+		if (nb_double > INT_MAX || nb_double < INT_MIN)
+		{
+			convertToChar(0, 0, 0, 1);
+			std::cout << "int: overflow/underflow" << std::endl;
+			std::cout << "float: overflow/underflow" << std::endl;
+			std::cout << "double: overflow/underflow" << std::endl;
+		}
+		else
+		{
+			convertToChar(nb_int, 0, 0, 1);
+			std::cout << "int: " << nb_int << std::endl;	
+			convertToFloat(0, nb_int, 0, 1);
+			convertToDouble(0, nb_int, 0, 1);
+		}
 	}
-	// c'est un float
 	else if (type_nb == 2)
 	{
 		nb_float = strtof(str.c_str(), 0);
@@ -149,7 +160,6 @@ void	ScalarConverter::ConvertAll(int type_nb, const std::string& str)
 		std::cout << "float: " << nb_float << "f" << std::endl;
 		convertToDouble(0, 0, nb_float, 2);
 	}
-	// c'est un double
 	else if (type_nb == 1)
 	{
 		nb_double = strtod(str.c_str(), 0);
@@ -158,7 +168,6 @@ void	ScalarConverter::ConvertAll(int type_nb, const std::string& str)
 		convertToFloat(0, 0, nb_double, 3);
 		std::cout << "double: " << nb_double << std::endl;
 	}
-	// c'est un char
 	else if (str.length() == 1)
 	{
 		c = str[0];
@@ -193,12 +202,13 @@ void	ScalarConverter::CheckTypeAndError(const std::string& str)
 	{
 		if (str.length() == 1)
 			break;
-		// regarde si str[i] est un point et que il ne se trouve pas au debut ou a la fin
-		if (str[i] == '.' && i != 0 && i != static_cast<int>(str.length() - 1))
+		if (str[i] == '.' && ((i == 0 || i == static_cast<int>(str.length() - 1)) || ((str[0] == '-' || str[0] == '+') && i == 1)))
 		{
-			if ((str[0] != '-' || str[0] != '+') && i != 1)
-				nb_point++;
+			error = 1;
+			break;
 		}
+		if (str[i] == '.')
+			nb_point++;
 		if (str[i] == 'f' && i == static_cast<int>(str.length() - 1) && nb_point == 1)
 		{
 			if (str[i - 1] != '.')
@@ -207,7 +217,6 @@ void	ScalarConverter::CheckTypeAndError(const std::string& str)
 				break;
 			}
 		}
-		// regarde si str[i] n'est pas un digit ou un point
 		if (isdigit(str[i]) == 0 && str[i] != '.')
 		{
 			error = 1;
@@ -257,6 +266,7 @@ void	ScalarConverter::convert(const std::string& str)
 {
 	if (checkPseudoLiteral(str))
 		return ;
+	std::cout << std::fixed;
 	CheckTypeAndError(str);
 
 

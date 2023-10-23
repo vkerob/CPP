@@ -1,8 +1,8 @@
 #include"DiamondTrap.hpp"
 
-
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
+	FragTrap::setAttackDamage(30);
 	std::cout << "DiamondTrap created" << std::endl;
 }
 

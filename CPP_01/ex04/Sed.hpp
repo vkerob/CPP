@@ -2,6 +2,7 @@
 # define SED_HPP
 
 #include<iostream>
+#include<string>
 
 class Sed
 {

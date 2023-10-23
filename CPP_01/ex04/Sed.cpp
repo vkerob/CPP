@@ -1,5 +1,4 @@
 #include"Sed.hpp"
-#include<string>
 
 Sed::Sed()
 {

@@ -5,21 +5,22 @@
 
 class Point
 {
-private:
-	
-	Fixed const x;
-	Fixed const y;
-	Point	&operator=(Point const &rhs);
+	private:
+		
+		Fixed const x;
+		Fixed const y;
+		Point	&operator=(Point const &rhs);
 
-public:
+	public:
 
-	Point(float const floating_pointx, float const floating_pointy);
-	Point(const Point &src);
-	Point();
-	~Point();
+		Point(float const floating_pointx, float const floating_pointy);
+		Point(const Point &src);
+		Point();
+		~Point();
 
-	int getx( void ) const;
-	int gety( void ) const;
+
+		int getx( void ) const;
+		int gety( void ) const;
 
 };
 

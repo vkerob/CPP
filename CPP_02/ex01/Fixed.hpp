@@ -18,7 +18,10 @@ public:
 	Fixed(float float_number);
 	~Fixed();
 
+
 	Fixed	&operator=(Fixed const &rhs);
+
+
 	int 	getRawBits( void ) const;
 	int 	getFractionalBits( void ) const;
 	float	toFloat( void ) const;
