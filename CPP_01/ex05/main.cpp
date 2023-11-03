@@ -12,4 +12,7 @@ int	main()
 	harl.complain("WARNING");
 	std::cout << std::endl;
 	harl.complain("ERROR");
+	std::cout << std::endl;
+	harl.complain("ff");
+	return (0);
 }

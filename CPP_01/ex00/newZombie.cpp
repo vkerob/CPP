@@ -13,7 +13,6 @@ Zombie*	newZombie( std::string name )
 		std::cout << bad_alloc.what() << std::endl;
 		return (NULL);
 	}
-	new_zombie->set_name(name);
-
+	new_zombie->setName(name);
 	return (new_zombie);
 }

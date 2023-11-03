@@ -6,11 +6,12 @@ int	main(void)
 {
 	Zombie *zombie_1;
 
-	zombie_1 = newZombie("Foo");
+	zombie_1 = newZombie("foo");
 	if (zombie_1 != NULL)
 	{
 		zombie_1->announce();
 		delete zombie_1;
 	}
 	randomChump("Foo2");
+	return (0);
 }

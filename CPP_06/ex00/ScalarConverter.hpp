@@ -27,6 +27,7 @@ class ScalarConverter
 		void					CheckTypeAndError(const std::string& str);
 		void					ConvertAll(int type_nb, const std::string& str);
 		void					displayError( void );
+		int						checkChar(const std::string& str);
 
 	public:
 

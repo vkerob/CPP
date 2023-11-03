@@ -50,21 +50,21 @@ void	ScalarConverter::convertToChar(int nb_int, float nb_float, double nb_double
 	if (type == 1)
 	{
 		if (nb_int > 20 && nb_int < 126)
-			std::cout << "char: " << c << std::endl;
+			std::cout << "char: '" << c << "'" << std::endl;
 		else
 			std::cout << "char: Non displayable" << std::endl;
 	}
 	else if (type == 2)
 	{
 		if (nb_float > 20 && nb_float < 126)
-			std::cout << "char: " << c << std::endl;
+			std::cout << "char: '" << c << "'" << std::endl;
 		else
 			std::cout << "char: Non displayable" << std::endl;
 	}
 	else if (type == 3)
 	{
 		if (nb_double > 20 && nb_double < 126)
-			std::cout << "char: " << c << std::endl;
+			std::cout << "char: '" << c <<  "'" << std::endl;
 		else
 			std::cout << "char: Non displayable" << std::endl;
 	}
@@ -129,11 +129,10 @@ void	ScalarConverter::convertToDouble(char c, int nb_int, float nb_float, int ty
 
 void	ScalarConverter::ConvertAll(int type_nb, const std::string& str)
 {
-	char	c;
 	int		nb_int;
 	float	nb_float;
 	double	nb_double;
-	if ((type_nb == 0 && str.length() > 1) || (str.length() == 1 && isdigit(str[0])))
+	if (type_nb == 0 && isdigit(str[0]))
 	{
 		nb_double = static_cast<double>(strtod(str.c_str(), 0));
 		nb_int = atoi(str.c_str());
@@ -168,17 +167,8 @@ void	ScalarConverter::ConvertAll(int type_nb, const std::string& str)
 		convertToFloat(0, 0, nb_double, 3);
 		std::cout << "double: " << nb_double << std::endl;
 	}
-	else if (str.length() == 1)
-	{
-		c = str[0];
-		if (c > 20 && c < 126)
-			std::cout << "char: " << c << std::endl;
-		else
-			std::cout << "char: Non displayable" << std::endl;
-		convertToInt(c, 0, 0, 0);
-		convertToFloat(c, 0, 0, 0);
-		convertToDouble(c, 0, 0, 0);
-	}
+	else
+		displayError();
 }
 
 void	ScalarConverter::displayError( void )
@@ -262,11 +252,35 @@ int	ScalarConverter::checkPseudoLiteral(const std::string& str)
 	return (0);
 }
 
+int	ScalarConverter::checkChar(const std::string& str)
+{
+	char	c;
+
+	if (str.length() == 3)
+	{
+		if (str[0] == '\'' && str[2] == '\'')
+		{
+			c = str[1];
+			if (c > 20 && c < 126)
+				std::cout << "char: '" << c << "'" << std::endl;
+			else
+				std::cout << "char: Non displayable" << std::endl;
+			convertToInt(c, 0, 0, 0);
+			convertToFloat(c, 0, 0, 0);
+			convertToDouble(c, 0, 0, 0);
+			return (1);
+		}
+	}
+	return (0);
+}
+
 void	ScalarConverter::convert(const std::string& str)
 {
 	if (checkPseudoLiteral(str))
 		return ;
 	std::cout << std::fixed;
+	if (checkChar(str))
+		return ;
 	CheckTypeAndError(str);
 
 

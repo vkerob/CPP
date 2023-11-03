@@ -43,6 +43,9 @@ void Harl::complain( std::string level )
 		if (level == tab_str[i])
 		{
 			(this->*_tab_funcptr[i])();
+			return ;
 		}
+		if (i == 3)
+			std::cout << "Probably complaining about insignificant problems" << std::endl;
 	}
 }

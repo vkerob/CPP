@@ -6,7 +6,10 @@ Zombie* zombieHorde( int N, std::string name )
 	int		i = 0;
 
 	if (N < 0)
-		N = 0;
+	{
+		std::cout << "invalid number of zombie" <<std::endl;
+		return (NULL);
+	}
 	try
 	{
 		horde = new Zombie[N];

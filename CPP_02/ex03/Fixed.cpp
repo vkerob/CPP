@@ -14,7 +14,7 @@ Fixed::Fixed(int int_number)
 
 Fixed::Fixed(float float_number)
 {
-	_fixedValue = static_cast<int>(float_number * (1 << this->getFractinalBits()));
+	_fixedValue = float_number * (1 << this->getFractinalBits());
 	
 }
 
