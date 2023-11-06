@@ -4,12 +4,15 @@
 # include <iostream>
 # include <string>
 
-template <typename T1, typename T2, typename T3> 
-void	iter(T1 *x, T2 y, T3 z)
+template <typename T1, typename T2, typename Fonction> 
+void	iter(T1 x, T2 y, Fonction fonction)
 {
-	for(int i = 0; i < y; i++;)
+	if (x == NULL)
+		return ;
+	for(int i = 0; i < y; i++)
 	{
-		*x[i].z();
+		if (x != NULL)
+			fonction(x[i]);
 	}
 }
 
