@@ -9,11 +9,27 @@ ScavTrap::ScavTrap() : ClapTrap()
 	std::cout << "ScavTrap created" << std::endl;
 }
 
+ScavTrap::ScavTrap(int attack) : ClapTrap()
+{
+	setHitPoint(100);
+	setEnergyPoint(50);
+	setAttackDamage(attack);
+	std::cout << "ScavTrap created" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	setHitPoint(100);
 	setEnergyPoint(50);
 	setAttackDamage(20);
+	std::cout << "ScavTrap " << name << " created" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name, int attack) : ClapTrap(name)
+{
+	setHitPoint(100);
+	setEnergyPoint(50);
+	setAttackDamage(attack);
 	std::cout << "ScavTrap " << name << " created" << std::endl;
 }
 

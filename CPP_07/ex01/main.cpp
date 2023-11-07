@@ -26,7 +26,7 @@ int	main()
 	std::cout << tab1[2] << std::endl;
 	std::cout << tab1[3] << std::endl;
 	std::cout << tab1[4] << std::endl;
-	std::string tab2[5] = {"t", "t", "t", "t", "t"};
+	std::string tab2[5] = {"tt", "t", "88888t", "t", "t"};
 	iter(tab2, 5, toUpper);
 	std::cout << tab2[0] << std::endl;
 	std::cout << tab2[1] << std::endl;

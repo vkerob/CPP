@@ -15,8 +15,10 @@ class ScavTrap : virtual public ClapTrap
 	public:
 		
 		ScavTrap();
+		ScavTrap(int attack);
 		ScavTrap(ScavTrap &src);
 		ScavTrap(std::string name);
+		ScavTrap(std::string name, int attack);
 		~ScavTrap();
 		ScavTrap	&operator=(ScavTrap &rhs);
 

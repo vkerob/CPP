@@ -5,14 +5,16 @@
 # include <string>
 
 template <typename T1, typename T2, typename Fonction> 
-void	iter(T1 x, T2 y, Fonction fonction)
+void	iter(T1 tab, T2 length, Fonction fonction)
 {
-	if (x == NULL)
+	int i = 0;
+
+	if (tab == NULL || length < 0)
 		return ;
-	for(int i = 0; i < y; i++)
+	while (i < length)
 	{
-		if (x != NULL)
-			fonction(x[i]);
+		fonction(tab[i]);
+		i++;
 	}
 }
 
