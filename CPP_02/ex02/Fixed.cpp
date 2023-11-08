@@ -19,7 +19,6 @@ Fixed::Fixed(float float_number)
 
 Fixed::Fixed(const Fixed &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
@@ -150,6 +149,13 @@ bool	Fixed::operator!=(Fixed const &rhs) const
 	if(this->_fixedValue != rhs.getRawBits())
 		return (true);
 	return(false);
+}
+
+bool	Fixed::operator==(Fixed const &rhs) const
+{
+	if(this->_fixedValue == rhs.getRawBits())
+			return (true);
+		return(false);
 }
 
 Fixed&	Fixed::operator+(Fixed const &rhs)
