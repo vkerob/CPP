@@ -26,9 +26,7 @@ DiamondTrap	&DiamondTrap::operator=(DiamondTrap &rhs)
 	if (this != &rhs)
 	{
 		this->ClapTrap::setName(rhs.getName() + "_clap_name");
-		this->setHitPoint(rhs.getHitPoint());
-		this->setEnergyPoint(rhs.getEnergyPoint());
-		this->setAttackDamage(rhs.getAttackDamage());
+		this->setName(rhs.getName());
 	}
 	return (*this);
 }
@@ -43,4 +41,9 @@ void DiamondTrap::whoAmI( void ) const
 std::string	DiamondTrap::getName(void) const
 {
 	return (_Name);
+}
+
+void	DiamondTrap::setName(std::string name)
+{
+	_Name = name;
 }

@@ -5,7 +5,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 
 		std::string		_Name;
 		unsigned int	_Hit_point;
@@ -21,16 +21,16 @@ class ClapTrap
 		ClapTrap	&operator=(const ClapTrap &rhs);
 
 
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		bool	checkEnergyPoint( void ) const;
+		virtual void	attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+		bool			checkEnergyPoint( void ) const;
 
 
-		std::string	getName(void) const;
-		int			getHitPoint(void) const;
-		int			getEnergyPoint(void) const;
-		int			getAttackDamage(void) const;
+		const std::string	&getName(void) const;
+		int					getHitPoint(void) const;
+		int					getEnergyPoint(void) const;
+		int					getAttackDamage(void) const;
 
 
 		void	setName(std::string str);

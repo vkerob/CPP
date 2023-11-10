@@ -89,7 +89,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 }
 
-std::string	ClapTrap::getName(void) const
+const std::string	&ClapTrap::getName(void) const
 {
 	return (_Name);
 }
@@ -108,6 +108,7 @@ int	ClapTrap::getAttackDamage(void) const
 {
 	return (_Attack_damage);
 }
+
 
 
 

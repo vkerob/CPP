@@ -23,7 +23,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap " << name << " created" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name, bool i) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name, bool i)
 {
 	if (!i)
 		return ;
