@@ -21,9 +21,9 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 		ScavTrap	&operator=(ScavTrap &rhs);
 
-		int		getKeeperMode(void) const;
+		bool	getKeeperMode(void) const;
 
-		void	setKeerperMode(int mode);
+		void	setKeerperMode(bool mode);
 		void	attack(const std::string& target);
 		void	guardGate(void);
 

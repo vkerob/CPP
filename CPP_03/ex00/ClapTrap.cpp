@@ -34,7 +34,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
 	return (*this);
 }
 
-bool	ClapTrap::checkPointValue( void ) const
+bool	ClapTrap::checkEnergyPoint( void ) const
 {
 	if (getEnergyPoint() == 0)
 	{
@@ -46,7 +46,7 @@ bool	ClapTrap::checkPointValue( void ) const
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (!checkPointValue())
+	if (!checkEnergyPoint())
 		return ;
 	setEnergyPoint(getEnergyPoint() - 1);
 	std::cout << "ClapTrap " << getName() << " attacks " << target << " causing " << getAttackDamage() << " points of damage!" << std::endl;
@@ -54,9 +54,9 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (!checkPointValue())
+	if (!checkEnergyPoint())
 		return ;
-	if (getHitPoint() - amount < 0)
+	if (getHitPoint() - amount < 0 && amount != 0)
 		setHitPoint(0);
 	else if (getHitPoint() == 0 && amount > 0)
 	{
@@ -72,17 +72,19 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (!checkPointValue())
+	if (!checkEnergyPoint())
 		return ;
-	if (amount + getHitPoint() <= 4294967295)
+	if (static_cast<long long int>(amount) + getHitPoint() <= 4294967295)
 	{
 		setEnergyPoint(getEnergyPoint() - 1);
 		std::cout << "ClapTrap " << getName() << " repaired itself by " << amount << " hit points" << std::endl;
 		setHitPoint(getHitPoint() + amount);
 	}
 	else
+	{
+		setEnergyPoint(getEnergyPoint() - 1);
 		std::cout << "overflow" << std::endl;
-
+	}
 }
 
 std::string	ClapTrap::getName(void) const

@@ -3,33 +3,31 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	setHitPoint(100);
 	setEnergyPoint(50);
 	setAttackDamage(20);
 	std::cout << "ScavTrap created" << std::endl;
 }
 
-ScavTrap::ScavTrap(int attack) : ClapTrap()
+ScavTrap::ScavTrap(bool i)
 {
-	setHitPoint(100);
+	if (!i)
+		return ;
 	setEnergyPoint(50);
-	setAttackDamage(attack);
 	std::cout << "ScavTrap created" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	setHitPoint(100);
 	setEnergyPoint(50);
 	setAttackDamage(20);
 	std::cout << "ScavTrap " << name << " created" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name, int attack) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name, bool i) : ClapTrap(name)
 {
-	setHitPoint(100);
+	if (!i)
+		return ;
 	setEnergyPoint(50);
-	setAttackDamage(attack);
 	std::cout << "ScavTrap " << name << " created" << std::endl;
 }
 
@@ -55,45 +53,48 @@ ScavTrap	&ScavTrap::operator=(ScavTrap &rhs)
 	return (*this);
 }
 
-int	ScavTrap::getKeeperMode(void) const
+bool	ScavTrap::getKeeperMode(void) const
 {
 	return (_keeper_mode);
 }
 
-void	ScavTrap::setKeerperMode(int mode)
+void	ScavTrap::setKeerperMode(bool mode)
 {
 	_keeper_mode = mode;
 }
 
 void	ScavTrap::guardGate(void)
 {
-	if (getEnergyPoint() <= 0)
+	if (getEnergyPoint() == 0 && !getKeeperMode())
+	{
 		std::cout << "ScavTrap " << getName() << " doesn't have enough energy..." << std::endl;
-	else if (getHitPoint() <= 0)
-		std::cout << "ScavTrap " << getName() << " is dead, unfortunately he can't do anything..." << std::endl;
-	if (getEnergyPoint() <= 0 || getHitPoint() <= 0)
 		return ;
+	}
+	else if (getHitPoint() == 0)
+	{
+		std::cout << "ScavTrap " << getName() << " is dead, unfortunately he can't do anything..." << std::endl;
+		return ;
+	}
 	if (getKeeperMode() % 2 == 0)
 	{
-		setKeerperMode(1);
+		setKeerperMode(true);
 		std::cout << "ScavTrap is now in Gatekeeper mode" << std::endl;
 		setEnergyPoint(getEnergyPoint() - 10);
 	}
 	else
 	{
-		setKeerperMode(0);
+		setKeerperMode(false);
 		std::cout << "ScavTrap leave the Gatekeeper mode" << std::endl;
 	}
-
 }
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (getEnergyPoint() <= 0)
+	if (getEnergyPoint() == 0)
 		std::cout << "ScavTrap " << getName() << " doesn't have enough energy..." << std::endl;
-	else if (getHitPoint() <= 0)
+	else if (getHitPoint() == 0)
 		std::cout << "ScavTrap " << getName() << " is dead, unfortunately he can't do anything..." << std::endl;
-	if (getEnergyPoint() <= 0 || getHitPoint() <= 0)
+	if (getEnergyPoint() == 0 || getHitPoint() == 0)
 		return ;
 	setEnergyPoint(getEnergyPoint() - 1);
 	std::cout << "ScavTrap " << getName() << " attacks " << target << " causing " << getAttackDamage() << " points of damage!" << std::endl;

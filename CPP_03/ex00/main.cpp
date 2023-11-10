@@ -41,7 +41,7 @@ int	main(void)
 	std::cout << "\033[94m//---------------librarian npc---------------//\033[0m" <<std::endl;
 	displayInfo(npc3);
 	while (npc3.getEnergyPoint() > 0)
-		npc3.beRepaired(5);
+		npc3.beRepaired(4294967295);
 	npc3.beRepaired(5);
 	displayInfo(npc3);
 	

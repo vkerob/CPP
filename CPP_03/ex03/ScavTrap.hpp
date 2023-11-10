@@ -15,16 +15,16 @@ class ScavTrap : virtual public ClapTrap
 	public:
 		
 		ScavTrap();
-		ScavTrap(int attack);
+		ScavTrap(bool i);
 		ScavTrap(ScavTrap &src);
 		ScavTrap(std::string name);
-		ScavTrap(std::string name, int attack);
+		ScavTrap(std::string name, bool i);
 		~ScavTrap();
 		ScavTrap	&operator=(ScavTrap &rhs);
 
-		int		getKeeperMode(void) const;
+		bool	getKeeperMode(void) const;
 
-		void	setKeerperMode(int mode);
+		void	setKeerperMode(bool mode);
 		void	attack(const std::string& target);
 		void	guardGate(void);
 

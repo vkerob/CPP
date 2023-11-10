@@ -7,10 +7,10 @@ class ClapTrap
 {
 	private:
 
-		std::string	_Name;
-		int			_Hit_point;
-		int			_Energy_point;
-		int			_Attack_damage;
+		std::string		_Name;
+		unsigned int	_Hit_point;
+		unsigned int	_Energy_point;
+		unsigned int	_Attack_damage;
 		
 	public:
 
@@ -21,10 +21,10 @@ class ClapTrap
 		ClapTrap	&operator=(const ClapTrap &rhs);
 
 
-		void		attack(const std::string& target);
-		void		takeDamage(unsigned int amount);
-		void		beRepaired(unsigned int amount);
-		bool		checkPointValue(void);
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
+		bool	checkEnergyPoint( void ) const;
 
 
 		std::string	getName(void) const;

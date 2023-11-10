@@ -1,14 +1,13 @@
 #include"DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap(30)
+DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap(true)
 {
 	std::cout << "DiamondTrap created" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name, 30)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name, true)
 {
 	_Name = name;
-	FragTrap::setAttackDamage(30);
 	std::cout << "DiamondTrap " << name << " created" << std::endl;
 }
 
@@ -34,7 +33,7 @@ DiamondTrap	&DiamondTrap::operator=(DiamondTrap &rhs)
 	return (*this);
 }
 
-void DiamondTrap::whoAmI( void )
+void DiamondTrap::whoAmI( void ) const
 {
 	std::cout << std::endl
 	<< "DiamondTrap name: " << getName() << std::endl
