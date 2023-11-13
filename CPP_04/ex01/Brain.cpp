@@ -7,7 +7,7 @@
 Brain::Brain()
 {
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = "test";
+		this->_ideas[i] = "default";
 }
 
 Brain::Brain( const Brain & src )

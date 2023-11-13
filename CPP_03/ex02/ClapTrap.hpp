@@ -17,7 +17,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(const ClapTrap &src);
 		ClapTrap(std::string name);
-		~ClapTrap();
+		virtual ~ClapTrap();
 		ClapTrap	&operator=(const ClapTrap &rhs);
 
 

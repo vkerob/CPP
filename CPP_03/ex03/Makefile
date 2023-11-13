@@ -1,8 +1,8 @@
 NAME = a.out
 
-CC = c++
+CXX = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g  -Wno-shadow
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g  -Wno-shadow
 
 SRC = main.cpp \
 		ClapTrap.cpp \
@@ -13,10 +13,10 @@ SRC = main.cpp \
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+	@$(CXX) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME) : $(OBJ)
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 all : $(NAME)
 

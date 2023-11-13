@@ -9,9 +9,8 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-	_name = name;
 	setGrade(grade);
 }
 
@@ -40,7 +39,6 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 	if ( this != &rhs )
 	{
 		this->_grade = rhs.getGrade();
-		this->_name = rhs.getName();
 	}
 	return *this;
 }
@@ -79,11 +77,6 @@ void	Bureaucrat::decreaseGrade(void)
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-void	Bureaucrat::setName(std::string name)
-{
-	_name = name;
-}
 
 void	Bureaucrat::setGrade(int grade)
 {

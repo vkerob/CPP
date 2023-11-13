@@ -23,7 +23,7 @@ class ScavTrap : public ClapTrap
 
 		bool	getKeeperMode(void) const;
 
-		void	setKeerperMode(bool mode);
+		void	setKeeperMode(bool mode);
 		void	attack(const std::string& target);
 		void	guardGate(void);
 

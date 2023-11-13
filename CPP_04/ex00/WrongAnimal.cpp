@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongAnimal::WrongAnimal() : _type("")
+WrongAnimal::WrongAnimal() : _type("...")
 {
 	std::cout << "WrongAnimal was created" <<std::endl;
 }

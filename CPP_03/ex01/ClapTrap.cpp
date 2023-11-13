@@ -1,15 +1,13 @@
 
 #include"ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _Name("default npc"), _Hit_point(10), _Energy_point(10), _Attack_damage(0)
+ClapTrap::ClapTrap() : _Name("default npc"), _Hit_point(100), _Energy_point(10), _Attack_damage(0)
 {
-	setHitPoint(100);
 	std::cout << "ClapTrap created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _Name(name), _Hit_point(10), _Energy_point(10), _Attack_damage(0)
+ClapTrap::ClapTrap(std::string name) : _Name(name), _Hit_point(100), _Energy_point(10), _Attack_damage(0)
 {
-	setHitPoint(100);
 	std::cout << "ClapTrap " << name << " created" << std::endl;
 }
 
@@ -48,6 +46,11 @@ bool	ClapTrap::checkEnergyPoint( void ) const
 
 void ClapTrap::attack(const std::string& target)
 {
+	if (getHitPoint() == 0)
+	{
+		std::cout << "ClapTrap " << getName() << " is dead, unfortunately he can't do anything..." << std::endl;
+		return ;
+	}
 	if (!checkEnergyPoint())
 		return ;
 	setEnergyPoint(getEnergyPoint() - 1);
@@ -56,11 +59,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (!checkEnergyPoint())
-		return ;
-	if (getHitPoint() - amount < 0 && amount != 0)
-		setHitPoint(0);
-	else if (getHitPoint() == 0 && amount > 0)
+	if (getHitPoint() == 0 && amount > 0)
 	{
 		std::cout << "ClapTrap " << getName() << " is dead, unfortunately he can't do anything..." << std::endl;
 		return ;
@@ -68,12 +67,17 @@ void ClapTrap::takeDamage(unsigned int amount)
 	else
 	{
 		setHitPoint(getHitPoint() - amount);
-		std::cout << "ClapTrap " << getName() << " was attacked and took " << getAttackDamage() << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << getName() << " was attacked and took " << amount << " points of damage!" << std::endl;
 	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (getHitPoint() == 0)
+	{
+		std::cout << "ClapTrap " << getName() << " is dead, unfortunately he can't do anything..." << std::endl;
+		return ;
+	}
 	if (!checkEnergyPoint())
 		return ;
 	if (static_cast<long long int>(amount) + getHitPoint() <= 4294967295)

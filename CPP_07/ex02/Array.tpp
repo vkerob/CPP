@@ -62,7 +62,7 @@ T&			Array<T>::operator[](size_t i)
 {
 	try
 	{
-		if (i >= size())
+		if (i >= size() && i > 0)
 			throw (std::out_of_range("index out of range"));
 		else
 			return (_array[i]);

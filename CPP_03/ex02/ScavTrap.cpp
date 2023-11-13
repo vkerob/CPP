@@ -32,7 +32,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap &rhs)
 		this->setHitPoint(rhs.getHitPoint());
 		this->setEnergyPoint(rhs.getEnergyPoint());
 		this->setAttackDamage(rhs.getAttackDamage());
-		this->setKeerperMode(rhs.getKeeperMode());
+		this->setKeeperMode(rhs.getKeeperMode());
 	}
 	return (*this);
 }
@@ -42,7 +42,7 @@ bool	ScavTrap::getKeeperMode(void) const
 	return (_keeper_mode);
 }
 
-void	ScavTrap::setKeerperMode(bool mode)
+void	ScavTrap::setKeeperMode(bool mode)
 {
 	_keeper_mode = mode;
 }
@@ -61,13 +61,13 @@ void	ScavTrap::guardGate(void)
 	}
 	if (getKeeperMode() % 2 == 0)
 	{
-		setKeerperMode(true);
+		setKeeperMode(true);
 		std::cout << "ScavTrap is now in Gatekeeper mode" << std::endl;
 		setEnergyPoint(getEnergyPoint() - 10);
 	}
 	else
 	{
-		setKeerperMode(false);
+		setKeeperMode(false);
 		std::cout << "ScavTrap leave the Gatekeeper mode" << std::endl;
 	}
 }

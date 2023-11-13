@@ -19,12 +19,12 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap(ScavTrap &src);
 		ScavTrap(std::string name);
 		ScavTrap(std::string name, bool i);
-		~ScavTrap();
+		virtual ~ScavTrap();
 		ScavTrap	&operator=(ScavTrap &rhs);
 
 		bool	getKeeperMode(void) const;
 
-		void	setKeerperMode(bool mode);
+		void	setKeeperMode(bool mode);
 		void	attack(const std::string& target);
 		void	guardGate(void);
 

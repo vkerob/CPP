@@ -1,8 +1,8 @@
 NAME = a.out
 
-CC = clang++
+CXX = clang++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 SRC = main.cpp \
 		ScalarConverter.cpp \
@@ -11,10 +11,10 @@ SRC = main.cpp \
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+	@$(CXX) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME) : $(OBJ)
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 all : $(NAME)
 

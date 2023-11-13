@@ -44,6 +44,7 @@ int	main(void)
 		npc3.beRepaired(4294967295);
 	npc3.beRepaired(5);
 	displayInfo(npc3);
+
 	
 
 

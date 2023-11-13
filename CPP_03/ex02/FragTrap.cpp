@@ -3,14 +3,14 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	setEnergyPoint(50);
+	setEnergyPoint(100);
 	setAttackDamage(30);
 	std::cout << "FragTrap created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	setEnergyPoint(50);
+	setEnergyPoint(100);
 	setAttackDamage(30);
 	std::cout << "FragTrap " << name << " created" << std::endl;
 }
