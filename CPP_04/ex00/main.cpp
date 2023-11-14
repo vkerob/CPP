@@ -29,6 +29,7 @@ int main()
 	std::cout << wrongmeta->getType() << std::endl;
 	std::cout << wrongi->getType() << std::endl;
 
+	std::cout << *wrongmeta << std::endl;
 
 	delete meta;
 	delete i;

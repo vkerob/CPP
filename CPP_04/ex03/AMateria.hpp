@@ -26,6 +26,7 @@ class AMateria
 
 		std::string const & getType() const;
 		void				setEquipeOrNot( void );
+		bool				getEquipeOrNot( void ) const;
 
 
 		virtual AMateria*	clone() const = 0;

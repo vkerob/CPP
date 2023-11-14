@@ -3,11 +3,12 @@
 
 # include <iostream>
 # include <string>
+#include <vector>
 
 template <typename T>
 void	easyfind(T type, int i)
 {
-
+	vector<int> tab;
 }
 
 

@@ -10,8 +10,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(bool i)
 {
-	if (!i)
-		return ;
+	(void) i;
 	setEnergyPoint(50);
 	std::cout << "ScavTrap created" << std::endl;
 }
@@ -25,8 +24,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(std::string name, bool i)
 {
-	if (!i)
-		return ;
+	(void) i;
 	setEnergyPoint(50);
 	std::cout << "ScavTrap " << name << " created" << std::endl;
 }

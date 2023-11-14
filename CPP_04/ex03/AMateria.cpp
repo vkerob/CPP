@@ -28,7 +28,7 @@ AMateria::AMateria( const AMateria & src )
 
 AMateria::~AMateria()
 {
-
+	
 }
 
 
@@ -75,6 +75,11 @@ std::string const & AMateria::getType() const
 void	AMateria::setEquipeOrNot(void)
 {
 	equipeOrNot = !equipeOrNot;
+}
+
+bool	AMateria::getEquipeOrNot( void ) const
+{
+	return (equipeOrNot);
 }
 
 
