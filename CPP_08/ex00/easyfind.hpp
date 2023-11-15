@@ -3,13 +3,17 @@
 
 # include <iostream>
 # include <string>
+#include <algorithm>
 #include <vector>
 
 template <typename T>
-void	easyfind(T type, int i)
+typename T::iterator	easyfind(T &type, int i)
 {
-	vector<int> tab;
+	typename T::iterator it;
+	it = std::find(type.begin(), type.end(), i);
+	if (it == type.end())
+		throw std::logic_error("occurence not found");
+	return (it);	
 }
-
 
 #endif
