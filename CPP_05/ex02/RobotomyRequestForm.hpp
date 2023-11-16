@@ -21,6 +21,7 @@ class RobotomyRequestForm : public AForm
 
 	public:
 
+		RobotomyRequestForm();
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(std::string name, int gradeToSigned, int gradeToExec, std::string target);
 		RobotomyRequestForm( RobotomyRequestForm const & src );

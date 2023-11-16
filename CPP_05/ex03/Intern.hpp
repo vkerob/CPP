@@ -15,7 +15,6 @@ class Intern
 
 	private:
 		enum 			Name {presidential, robotomy, shrubbery, unknown};
-		Intern::Name	formToEnum(std::string form_name);
 		Intern &		operator=( Intern const & rhs );
 		Intern( Intern const & src );
 
@@ -35,7 +34,8 @@ class Intern
 		};
 
 
-		AForm	*makeForm(std::string formName, std::string target);
+		AForm			*makeForm(std::string formName, std::string target);
+		int				formToEnum(std::string form_name);
 
 };
 

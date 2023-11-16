@@ -37,20 +37,20 @@ Intern &				Intern::operator=( Intern const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-Intern::Name	Intern::formToEnum(std::string form_name)
+int	Intern::formToEnum(std::string form_name)
 {
-	if (form_name == "presidential request")
-		return (presidential);
-	if (form_name == "robotomy request")
-		return (robotomy);
-	if (form_name == "shrubbery request")
-		return (shrubbery);
+	std::string tab[3] = {"presidential request", "robotomy request", "shrubbery request"};
+	for (int i = 0; i < 2; i++)
+	{
+		if (tab[i] == form_name)
+			return (i);
+	}
 	return (unknown);
 }
 
 AForm	*Intern::makeForm(std::string form_name, std::string target)
 {
-	Name enum_name;
+	int enum_name;
 	AForm *form = NULL;
 
 	enum_name = formToEnum(form_name);

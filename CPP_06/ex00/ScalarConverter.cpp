@@ -219,7 +219,7 @@ void	ScalarConverter::CheckTypeAndError(const std::string& str)
 		displayError();
 		return ;
 	}
-	if (type_nb == 0 && nb_point == 1 && type_nb != 2)
+	if (type_nb == 0 && nb_point == 1)
 		type_nb = 1;
 	ConvertAll(type_nb, str);
 }

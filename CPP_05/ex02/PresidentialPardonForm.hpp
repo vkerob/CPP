@@ -20,6 +20,7 @@ class PresidentialPardonForm : public AForm
 
 	public:
 
+		PresidentialPardonForm();
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(std::string name, int gradeToSigned, int gradeToExec, std::string target);
 		PresidentialPardonForm( PresidentialPardonForm const & src );

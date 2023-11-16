@@ -4,9 +4,14 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm()
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm()
 {
-	_target = target;
+	_target = "default";
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(), _target(target)
+{
+
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int gradeToSigned, int gradeToExec, std::string target) : AForm(name, gradeToSigned, gradeToExec), _target(target)
@@ -14,8 +19,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int gradeToSigned
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) : AForm(src), _target(src._target)
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) : _target(src._target)
 {
+	*this = src;
 }
 
 /*
@@ -34,7 +40,7 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 {
 	if ( this != &rhs )
 	{
-		//this->_isSigned = rhs.getIsSigned();
+		this->_target = rhs.getTarget();
 	}
 	return *this;
 }

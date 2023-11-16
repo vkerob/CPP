@@ -6,7 +6,7 @@
 
 # include <iostream>
 # include <string>
-# include<fstream>
+# include <fstream>
 # include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm
@@ -15,16 +15,21 @@ class ShrubberyCreationForm : public AForm
 	private:
 
 		std::string	_target;
-		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
-		void	execute(Bureaucrat const & executor) const;
-		void	beSigned(Bureaucrat b);
 
 	public:
 
+		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(std::string name, int gradeToSigned, int gradeToExec, std::string target);
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
 		~ShrubberyCreationForm();
+
+
+		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
+		
+		
+		void	execute(Bureaucrat const & executor) const;
+		void	beSigned(Bureaucrat b);
 
 
 		std::string	getTarget() const;

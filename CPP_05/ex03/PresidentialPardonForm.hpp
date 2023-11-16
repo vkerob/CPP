@@ -14,16 +14,21 @@ class PresidentialPardonForm : public AForm
 	private:
 
 		std::string	_target;
-		PresidentialPardonForm &		operator=( PresidentialPardonForm const & rhs );
-		void	execute(Bureaucrat const & executor) const;
-		void	beSigned(Bureaucrat b);
 
 	public:
 
+		PresidentialPardonForm();
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(std::string name, int gradeToSigned, int gradeToExec, std::string target);
 		PresidentialPardonForm( PresidentialPardonForm const & src );
 		~PresidentialPardonForm();
+
+
+		PresidentialPardonForm &		operator=( PresidentialPardonForm const & rhs );
+
+
+		void	execute(Bureaucrat const & executor) const;
+		void	beSigned(Bureaucrat b);
 
 
 		std::string	getTarget() const;

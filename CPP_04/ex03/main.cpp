@@ -20,28 +20,32 @@ int main()
 	ICharacter* bob = new Character("bob");
 
 	AMateria* tmp1;
-	tmp1 = src->createMateria("ice");
-	me->equip(tmp1);
-	me->use(0, *bob);
-	me->unequip(0);
 	AMateria* tmp2;
+	AMateria* tmp3;
+	AMateria* tmp4;
+	AMateria* tmp5;
+	tmp1 = src->createMateria("ice");
 	tmp2 = src->createMateria("cure");
+	tmp3 = src->createMateria("cure");
+	tmp4 = src->createMateria("ice");
+	tmp5 = src->createMateria("sqwfuofwuo");
+	me->equip(tmp1);
 	me->equip(tmp2);
-
-
-	me->use(0, *bob);
-	me->use(1, *bob);
-	me->use(4, *bob);
-
+	me->equip(tmp3);
+	me->equip(tmp4);
+	me->equip(tmp5);
+	me->use(3, *bob);
+	bob->equip(tmp5);
 	me->unequip(0);
-	me->use(2, *bob);
+	me->use(0, *bob);
+
 
 
 	delete bob;
 	delete me;
 	delete src;
-	delete tmp1;
-	delete tmp2;
+	//delete tmp1;
+	//delete tmp2;
 	return 0;
 
 }

@@ -6,7 +6,7 @@
 
 # include <iostream>
 # include <string>
-# include<fstream>
+# include <fstream>
 # include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm
@@ -21,6 +21,7 @@ class ShrubberyCreationForm : public AForm
 
 	public:
 
+		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(std::string name, int gradeToSigned, int gradeToExec, std::string target);
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );

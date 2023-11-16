@@ -6,10 +6,8 @@
 
 MateriaSource::MateriaSource()
 {
-	_inventory[0] = NULL;
-	_inventory[1] = NULL;
-	_inventory[2] = NULL;
-	_inventory[3] = NULL;
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = NULL;
 }
 
 MateriaSource::MateriaSource( const MateriaSource & src )

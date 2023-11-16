@@ -1,15 +1,13 @@
-NAME = ex00
+NAME = ex02
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g  -Wno-shadow
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g -Wno-shadow
 
 SRC = main.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
+		MutantStack.cpp \
+		
+
 
 OBJ = $(SRC:.cpp=.o)
 

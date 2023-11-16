@@ -4,6 +4,14 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+Character::Character()
+{
+	_name = "default";
+	for (int i = 0; i < 4; i++)
+        _inventory[i] = NULL;
+}
+
+
 Character::Character(std::string name)
 {
 	_name = name;
@@ -70,6 +78,8 @@ std::ostream &			operator<<( std::ostream & o, Character const & i )
 
 void Character::equip(AMateria* m)
 {
+	if (m == NULL)
+		return;
 	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i] == NULL && m->getEquipeOrNot() == false)
@@ -78,7 +88,13 @@ void Character::equip(AMateria* m)
 			_inventory[i]->setEquipeOrNot();
 			return ;
 		}
+		else if (m->getEquipeOrNot() == true)
+		{
+			std::cout << "already equipe" << std::endl;
+			return ;
+		}
 	}
+	std::cout << "full inventory" << std::endl;
 }
 
 

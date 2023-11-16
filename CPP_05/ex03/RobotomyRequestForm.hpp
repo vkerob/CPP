@@ -15,16 +15,21 @@ class RobotomyRequestForm : public AForm
 	private:
 
 		std::string	_target;
-		RobotomyRequestForm &		operator=( RobotomyRequestForm const & rhs );
-		void	execute(Bureaucrat const & executor) const;
-		void	beSigned(Bureaucrat b);
 
 	public:
 
+		RobotomyRequestForm();
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(std::string name, int gradeToSigned, int gradeToExec, std::string target);
 		RobotomyRequestForm( RobotomyRequestForm const & src );
 		~RobotomyRequestForm();
+
+		
+		RobotomyRequestForm &		operator=( RobotomyRequestForm const & rhs );
+		
+		
+		void	execute(Bureaucrat const & executor) const;
+		void	beSigned(Bureaucrat b);
 
 
 		std::string	getTarget() const;

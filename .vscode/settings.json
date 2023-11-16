@@ -53,6 +53,8 @@
 		"sstream": "cpp",
 		"fstream": "cpp",
 		"cinttypes": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"set": "cpp",
+		"list": "cpp"
 	}
 }

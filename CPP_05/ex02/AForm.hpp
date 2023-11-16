@@ -17,12 +17,12 @@ class AForm
 		int	const			_gradeExec;
 		int const			_gradeSign;
 		AForm &		operator=( AForm const & rhs );
+		AForm( AForm const & src );
 
 	public:
 
 		AForm();
 		AForm(std::string name, int gradeToSigned, int gradeToExec);
-		AForm( AForm const & src );
 		virtual ~AForm();
 
 

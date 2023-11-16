@@ -4,17 +4,23 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm()
+RobotomyRequestForm::RobotomyRequestForm() : AForm()
 {
-	_target = target;
+	_target = "default";
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(), _target(target)
+{
+
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string name, int gradeToSigned, int gradeToExec, std::string target) : AForm(name, gradeToSigned, gradeToExec), _target(target)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : AForm(src), _target(src._target)
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : _target(src._target)
 {
+	*this = src;
 }
 
 /*
@@ -34,7 +40,7 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 {
 	if ( this != &rhs )
 	{
-		//this->_isSigned = rhs.getIsSigned();
+		this->_target = rhs.getTarget();
 	}
 	return *this;
 }

@@ -4,17 +4,23 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm()
+PresidentialPardonForm::PresidentialPardonForm() : AForm()
 {
-	_target = target;
+	_target = "default";
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(), _target(target)
+{
+
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string name, int gradeToSigned, int gradeToExec, std::string target) : AForm(name, gradeToSigned, gradeToExec), _target(target)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : AForm(src), _target(src._target)
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : _target(src._target)
 {
+	*this = src;
 }
 
 
@@ -35,7 +41,7 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 {
 	if ( this != &rhs )
 	{
-		//this->_isSigned = rhs.getIsSigned();
+		this->_target = rhs.getTarget();
 	}
 	return *this;
 }
