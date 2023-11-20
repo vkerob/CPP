@@ -12,16 +12,14 @@ class Serializer
 	private:
 
 		Serializer &		operator=( Serializer const & rhs );
+		Serializer( Serializer const & src );
+		Serializer();
+		~Serializer();
 
 	public:
 
-		Serializer();
-		Serializer( Serializer const & src );
-		~Serializer();
-
-
-		uintptr_t	serialize(Data* ptr);
-		Data*		deserialize(uintptr_t raw);
+		static uintptr_t	serialize(Data* ptr);
+		static Data*		deserialize(uintptr_t raw);
 };
 
 //std::ostream &			operator<<( std::ostream & o, Serializer const & i );

@@ -18,25 +18,23 @@ class ScalarConverter
 
 	private:
 
+		ScalarConverter();
+		~ScalarConverter();
+		ScalarConverter( ScalarConverter const & src );
 		ScalarConverter &		operator=( ScalarConverter const & rhs );
-		int						checkPseudoLiteral(const std::string& str);
-		void					convertToChar(int nb_int, float nb_float, double nb_double, int type);
-		void					convertToInt(char c, float nb_float, double nb_double, int type);
-		void					convertToFloat(char c, int nb_int, double nb_double, int type);
-		void					convertToDouble(char c, int nb_int, float nb_float, int type);
-		void					CheckTypeAndError(const std::string& str);
-		void					ConvertAll(int type_nb, const std::string& str);
-		void					displayError( void );
-		int						checkChar(const std::string& str);
+		static int						checkPseudoLiteral(const std::string& str);
+		static void					convertToChar(int nb_int, float nb_float, double nb_double, int type);
+		static void					convertToInt(char c, float nb_float, double nb_double, int type);
+		static void					convertToFloat(char c, int nb_int, double nb_double, int type);
+		static void					convertToDouble(char c, int nb_int, float nb_float, int type);
+		static void					CheckTypeAndError(const std::string& str);
+		static void					ConvertAll(int type_nb, const std::string& str);
+		static void					displayError( void );
+		static int						checkChar(const std::string& str);
 
 	public:
 
-		ScalarConverter();
-		ScalarConverter( ScalarConverter const & src );
-		~ScalarConverter();
-
-
-		void	convert(const std::string& str);
+		static void	convert(const std::string& str);
 
 };
 

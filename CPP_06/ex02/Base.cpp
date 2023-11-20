@@ -31,9 +31,10 @@ Base::~Base()
 ** --------------------------------- METHODS ----------------------------------
 */
 
-Base * 	Base::generate(void)
+Base * 	Base::generate(void) const
 {
-	static int 	nb_rand = 0;
+	srand(time(NULL));
+	int 		nb_rand = rand() % 3;
 	Base		*ABC;
 
 	if (nb_rand == 0)
@@ -48,7 +49,7 @@ Base * 	Base::generate(void)
 	return (ABC);
 }
 
-void	Base::identify(Base* p)
+void	Base::identify(Base* p) const
 {
 	A	*a;
 	B	*b;
@@ -59,32 +60,32 @@ void	Base::identify(Base* p)
 	c = dynamic_cast<C *>(p);
 	if (a != NULL)
 		std::cout << "type is A" << std::endl;
-	if (b != NULL)
+	else if (b != NULL)
 		std::cout << "type is B" << std::endl;
-	if (c != NULL)
+	else if (c != NULL)
 		std::cout << "type is C" << std::endl;
 }
 
-void	Base::identify(Base& p)
+void	Base::identify(Base& p) const
 {
 	try
 	{
 		A	a = dynamic_cast<A &>(p);
 		std::cout << "type is A" << std::endl;
 	}
-	catch(std::exception &bc) { std::cout << "t" << std::endl;}
+	catch(std::exception &bc) { std::cout << "not A" << std::endl;}
 	try
 	{
 		B	b = dynamic_cast<B &>(p);
 		std::cout << "type is B" << std::endl;
 	}
-	catch(std::exception &bc) {std::cout << "t" << std::endl;}
+	catch(std::exception &bc) {std::cout << "not B" << std::endl;}
 	try
 	{
 		C	c = dynamic_cast<C &>(p);
 		std::cout << "type is C" << std::endl;
 	}
-	catch(std::exception &bc) {std::cout << "t" << std::endl;}
+	catch(std::exception &bc) {std::cout << "not C" << std::endl;}
 
 }
 

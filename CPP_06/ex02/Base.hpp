@@ -4,6 +4,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <time.h>
 
 
 
@@ -16,12 +17,9 @@ class Base
 		virtual ~Base();
 
 
-		Base * 	generate(void);
-		void	identify(Base* p);
-		void	identify(Base& p);
-
-
-	private:
+		Base * 	generate(void) const;
+		void	identify(Base* p) const;
+		void	identify(Base& p) const;
 
 };
 
