@@ -6,21 +6,21 @@
 # include <stack>
 # include <deque>
 
-template<typename T, typename Container = std::deque<T>>
-
-class MutantStack : std::stack<T, Container>
+template<typename T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
-
+	using std::stack<T, Container>::c;
 
 	public:
 
-		Container::iterator iterator begin()
+		typedef typename Container::iterator iterator;
+		iterator begin()
 		{
-			return std::begin(this->c);
+			return c.begin();
 		}
-		Container::iterator iterator end()
+		iterator end()
 		{
-			return std::end(this->c);
+			return c.end();
 		}
 
 	private:

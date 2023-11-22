@@ -25,7 +25,7 @@ Array<T>::Array(Array const & src)
 template <typename T>
 Array<T>::~Array()
 {
-	if (size() != 0)
+	if (_array)
 		delete [] _array;
 }
 
@@ -62,7 +62,7 @@ T&			Array<T>::operator[](size_t i)
 {
 	try
 	{
-		if (i >= size() && i > 0)
+		if (i >= size() || i > 0)
 			throw (std::out_of_range("index out of range"));
 		else
 			return (_array[i]);
@@ -94,15 +94,19 @@ unsigned int	Array<T>::size()
 template <typename T>
 T	Array<T>::getArray(unsigned int i)
 {
-	if (i < size())
+	if (i < size() && i >= 0)
 		_array[i];
+	else
+		std::cout << "out of range" << std::endl;
 }
 
 template <typename T>
 void	Array<T>::setArray(T value, unsigned int i)
 {
-	if (i < size())
+	if (i < size() && i >= 0)
 		_array[i] = value;
+	else
+		std::cout << "out of range" << std::endl;
 }
 
 #endif

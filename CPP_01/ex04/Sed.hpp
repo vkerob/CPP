@@ -6,12 +6,14 @@
 
 class Sed
 {
-	
-	public:
+	private:
 
-		std::string	find_and_replace(std::string &line, const std::string &s1, const std::string &s2);
 		Sed();
 		~Sed();
+
+	public:
+
+		static std::string	find_and_replace(std::string &line, const std::string &s1, const std::string &s2);
 };
 
 

@@ -14,12 +14,12 @@ Harl::~Harl()
 
 }
 
-int	_str_to_enum(std::string level)
+int	Harl::_str_to_enum(std::string level)
 {
 	int i = 0;
 	const char *tab[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	for(;i<4; i++)
+	for(;i < 4; i++)
 	{
 		if (level == tab[i])
 			return (i);
@@ -69,8 +69,6 @@ void Harl::complain( std::string level )
 			break;
 		case error_level:
 			(this->*_tab_funcptr[3])();
-			break;
-		case 4:
 			break;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;

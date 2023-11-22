@@ -40,7 +40,7 @@ Intern &				Intern::operator=( Intern const & rhs )
 int	Intern::formToEnum(std::string form_name)
 {
 	std::string tab[3] = {"presidential request", "robotomy request", "shrubbery request"};
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		if (tab[i] == form_name)
 			return (i);
@@ -61,11 +61,11 @@ AForm	*Intern::makeForm(std::string form_name, std::string target)
 			std::cout << "Intern create Presidential Form" << std::endl;
 			break;
 		case robotomy:
-			form = new PresidentialPardonForm(form_name, 72, 45, target);
+			form = new RobotomyRequestForm(form_name, 72, 45, target);
 			std::cout << "Intern create Robotomy Form" << std::endl;
 			break;
 		case shrubbery:
-			form = new PresidentialPardonForm(form_name, 145, 137, target);
+			form = new ShrubberyCreationForm(form_name, 145, 137, target);
 			std::cout << "Intern create Shrubbery Form" << std::endl;
 			break;
 		case unknown:

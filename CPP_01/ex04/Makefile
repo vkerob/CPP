@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = sed
 
 CC = c++
 

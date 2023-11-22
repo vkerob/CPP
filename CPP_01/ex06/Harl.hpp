@@ -13,7 +13,7 @@ class Harl
 		void	_error( void );
 		void	(Harl::*_tab_funcptr[4])(void);
 		enum 	Level {debug_level, info_level, warning_level, error_level, none_level};
-		Level	_str_to_enum(std::string level);
+		int		_str_to_enum(std::string level);
 
 	public:
 

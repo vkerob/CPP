@@ -8,7 +8,7 @@ int	main(void)
 	Zombie *horde;
 	int 	i = 0;
 
-	horde = zombieHorde(-4, "foo");
+	horde = zombieHorde(4, "foo");
 	if (horde != NULL)
 	{
 		while (i < 4)

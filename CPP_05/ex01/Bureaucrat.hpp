@@ -14,12 +14,13 @@ class Bureaucrat
 
 		const std::string	_name;
 		int					_grade;
+		Bureaucrat &		operator=( Bureaucrat const & rhs );
+		Bureaucrat( Bureaucrat const & src );
 
 	public:
 
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
-		Bureaucrat( Bureaucrat const & src );
 		~Bureaucrat();
 
 
@@ -48,7 +49,6 @@ class Bureaucrat
 		int			getGrade(void) const;
 
 
-		Bureaucrat &		operator=( Bureaucrat const & rhs );
 
 
 		void	increaseGrade(void);

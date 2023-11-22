@@ -13,7 +13,7 @@ class Span
 	private:
 
 		unsigned int 		_max_number;
-		std::list<int>		_list1;
+		std::list<int>		_list;
 
 	public:
 
@@ -29,6 +29,9 @@ class Span
 		void	addManyNumber(std::list<int> &list2);
 		int		shortestSpan();
 		int		longestSpan();
+
+
+		std::list<int> &getList();
 
 };
 

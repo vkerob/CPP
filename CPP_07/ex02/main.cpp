@@ -3,7 +3,7 @@
 int	main()
 {
 	std::string str = "test";
-	Array<int> tab1(2);
+	Array<int> tab1(0);
 	Array<std::string> tab2(2);
 
 	tab1.setArray(1, 0);
