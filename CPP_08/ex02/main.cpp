@@ -23,5 +23,8 @@ int main()
 	++it;
 	}
 	std::stack<int> s(mstack);
+
+	MutantStack<
+
 	return 0;
 }

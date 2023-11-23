@@ -4,8 +4,8 @@
 # include <iostream>
 # include <string>
 
-template <typename T1, typename T2, typename Fonction> 
-void	iter(T1 tab, T2 length, Fonction fonction)
+template <typename T1, typename T2, typename F> 
+void	iter(T1 tab, T2 length, F fonction)
 {
 	int i = 0;
 

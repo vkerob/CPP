@@ -22,9 +22,9 @@ class MutantStack : public std::stack<T, Container>
 		{
 			return c.end();
 		}
-
-	private:
-
+		MutantStack();
+		~MutantStack();
+		
 };
 
 

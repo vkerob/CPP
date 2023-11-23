@@ -56,7 +56,7 @@ Array<T> &		Array<T>::operator=( Array<T> const & rhs )
 template <typename T>
 T&			Array<T>::operator[](size_t i)
 {
-	if (i >= size() || i > 0 || size() == 0)
+	if (i >= size() || i < 0 || size() == 0)
 		throw (std::out_of_range("index out of range"));
 	return (_array[i]);
 }
