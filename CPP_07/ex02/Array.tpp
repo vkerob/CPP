@@ -13,7 +13,10 @@ Array<T>::Array() : _n(0)
 template <typename T>
 Array<T>::Array(unsigned int n) : _n(n)
 {
-	_array = new T[n];
+	if (n != 0)
+		_array = new T[n];
+	else
+		_array = NULL;
 }
 
 template <typename T>
@@ -29,19 +32,14 @@ Array<T>::~Array()
 		delete [] _array;
 }
 
-
-
-
-
-
 template <typename T>
 Array<T> &		Array<T>::operator=( Array<T> const & rhs )
 {
 	if ( this != &rhs )
 	{
-		if (this->size() != 0)
+		if (this->_array)
 			delete [] _array;
-		if (rhs.size() != 0)
+		if (rhs._array)
 		{
 			this->_array = new T[rhs.size()];
 			for (int i = 0; i < rhs.size(); i++)
@@ -50,8 +48,6 @@ Array<T> &		Array<T>::operator=( Array<T> const & rhs )
 					this->_array[i] = rhs._array[i];
 			}
 		}
-		else
-			this->_array = NULL;
 		this->_n = rhs.size();
 	}
 	return (*this);
@@ -60,26 +56,10 @@ Array<T> &		Array<T>::operator=( Array<T> const & rhs )
 template <typename T>
 T&			Array<T>::operator[](size_t i)
 {
-	try
-	{
-		if (i >= size() || i > 0)
-			throw (std::out_of_range("index out of range"));
-		else
-			return (_array[i]);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	if (i >= size() || i > 0 || size() == 0)
+		throw (std::out_of_range("index out of range"));
 	return (_array[i]);
 }
-
-
-
-
-
-
-
 
 template <typename T>
 unsigned int	Array<T>::size()
@@ -87,26 +67,22 @@ unsigned int	Array<T>::size()
 	return(_n);
 }
 
-
-
-
-
 template <typename T>
 T	Array<T>::getArray(unsigned int i)
 {
-	if (i < size() && i >= 0)
-		_array[i];
+	if (i >= size() || i < 0 || size() == 0)
+		std::cout << "index out of range" << std::endl;
 	else
-		std::cout << "out of range" << std::endl;
+		return (_array[i]);
 }
 
 template <typename T>
 void	Array<T>::setArray(T value, unsigned int i)
 {
-	if (i < size() && i >= 0)
-		_array[i] = value;
+	if (i >= size() || i < 0 || size() == 0)
+		std::cout << "index out of range" << std::endl;
 	else
-		std::cout << "out of range" << std::endl;
+		_array[i] = value;
 }
 
 #endif

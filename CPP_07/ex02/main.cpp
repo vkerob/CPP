@@ -9,10 +9,15 @@ int	main()
 	tab1.setArray(1, 0);
 	tab2.setArray(str, 0);
 	tab2.setArray(str, 1);
-
-	std::cout << tab1[0] << std::endl;
-	std::cout << tab2[0] << std::endl;
-	std::cout << tab2[1] << std::endl;
-
-
+	std::cout << std::endl;
+	try
+	{
+		std::cout << tab1[0] << std::endl;
+		std::cout << tab2[0] << std::endl;
+		std::cout << tab2[1] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
