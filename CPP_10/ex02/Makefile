@@ -1,21 +1,20 @@
-NAME = a.out
+NAME = PmergeMe
 
-CC = c++
+CXX = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 SRC = main.cpp \
-		Fixed.cpp \
-		Point.cpp  \
-		bsp.cpp \
+		PmergeMe.cpp
+
 
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+	@$(CXX) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME) : $(OBJ)
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 all : $(NAME)
 
