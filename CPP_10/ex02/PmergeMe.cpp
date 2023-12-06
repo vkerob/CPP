@@ -62,7 +62,7 @@ bool	PmergeMe::FordJohnsonAlgorithm(int &argc, char **&argv)
 		std::cout << "result : " <<_result[i] << std::endl;
 		i++;
 	}
-	performBinarySearchAndInsertForSecondElement();
+	//performBinarySearchAndInsertForSecondElement();
 
 	return (true);
 }
@@ -192,44 +192,29 @@ size_t PmergeMe::jacobsthal(int n)
 
 void PmergeMe::reorganizeSecondElementWithJacobsthal()
 {
-	std::deque<std::pair<int, int> > tmp;
 	std::deque<std::pair<int, int> >::iterator it = _b_element.begin();
-	std::deque<std::pair<int, int> >::iterator it2 = tmp.begin();
-	while (it != _b_element.end())
-	{
-		tmp.push_back(std::pair<int, int>(it->first, it->second));
-		it++;
-		it2++;
-	}
-	it = _b_element.begin();
-	size_t sequence;
-	int	n = 0;
-	size_t start = -1;
+	std::deque<std::pair<int, int> >::iterator it2 = _b_element.begin();
 
-	while (it != _b_element.end())
+	int start = 0, end = 0, n = 0;
+	
+	for (; it != _b_element.end(); it++)
 	{
-		sequence = jacobsthal(n) - 1;
-		if (sequence > _b_element.size())
-			sequence = _b_element.size() - 1;
-		while (it != _b_element.end() && sequence != start)
+		start += end;
+		end = jacobsthal(n);
+		if (end > _b_element.size())
+			end = _b_element.size();
+		while (start < end && it != _b_element.end())
 		{
-			it->second = jacobsthal(n);
-			tmp[sequence] = *it;
-			sequence--;
+			std::swap(it2 + start, it2 + end);
+			start--;
+			end++;
 			it++;
 		}
-		start = jacobsthal(n) - 1;
-		if (start == 1)
-			start = -1;
 		n++;
 	}
-	it = tmp.begin();
-	int i = 0;
-	for(;it != tmp.end(); it++)
-	{
-		_b_element[i] = *it;
-		i++;
-	}
+
+	
+
 }
 
 void	PmergeMe::BinarySearch(size_t high, int value)
