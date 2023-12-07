@@ -55,6 +55,9 @@
 		"cinttypes": "cpp",
 		"*.tpp": "cpp",
 		"set": "cpp",
-		"list": "cpp"
+		"list": "cpp",
+		"map": "cpp",
+		"bitset": "cpp",
+		"regex": "cpp"
 	}
 }

@@ -13,7 +13,7 @@ typename T::iterator	easyfind(T &type, int i)
 	it = std::find(type.begin(), type.end(), i);
 	if (it == type.end())
 		throw std::logic_error("occurence not found");
-	return (it);	
+	return (it);
 }
 
 #endif

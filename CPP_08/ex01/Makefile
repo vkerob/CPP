@@ -1,12 +1,11 @@
-NAME = a.out
+NAME = ex01
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g -Wno-shadow
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC = main.cpp \
 		Span.cpp \
-		
 
 
 OBJ = $(SRC:.cpp=.o)

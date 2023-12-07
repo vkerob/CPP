@@ -11,7 +11,10 @@ Span::Span()
 
 Span::Span(unsigned int nb)
 {
-	_max_number = nb;
+	if (static_cast<int>(nb) < 0)
+		_max_number = 0;
+	else
+		_max_number = nb;
 }
 
 Span::Span( const Span & src )
