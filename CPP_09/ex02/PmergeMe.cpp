@@ -180,36 +180,36 @@ void PmergeMe::mergeDeque(int left_idx, int mid, int right_idx)
     int i, j, k;
     int size_left_arr = mid - left_idx + 1;
     int size_right_arr = right_idx - mid;
-    int left[size_left_arr], right[size_right_arr];
+	std::deque<std::pair<int, int> > left(size_left_arr), right(size_left_arr);
 
     for (i = 0; i < size_left_arr; i++)
-        left[i] = _pair_deque[left_idx + i].first;
+        left[i] = _pair_deque[left_idx + i];
     for (j = 0; j < size_right_arr; j++)
-        right[j] = _pair_deque[mid + 1 + j].first;
+        right[j] = _pair_deque[mid + 1 + j];
 
     i = 0;
     j = 0;
     k = left_idx;
     while (i < size_left_arr && j < size_right_arr) {
-        if (left[i] <= right[j]) {
-            _pair_deque[k].first = left[i];
+        if (left[i].first <= right[j].first) {
+            _pair_deque[k] = left[i];
             i++;
         }
         else {
-            _pair_deque[k].first = right[j];
+            _pair_deque[k] = right[j];
             j++;
         }
         k++;
     }
 
     while (i < size_left_arr) {
-        _pair_deque[k].first = left[i];
+        _pair_deque[k] = left[i];
         i++;
         k++;
     }
  
     while (j < size_right_arr) {
-        _pair_deque[k].first = right[j];
+        _pair_deque[k] = right[j];
         j++;
         k++;
     }
@@ -275,7 +275,7 @@ void	PmergeMe::BinarySearchInsertDeque(size_t high, int value)
 		else
 			low = mid + 1;
 	}
-	_result_deque.insert(_result_deque.end(), value);
+	_result_deque.push_back(value);
 }
 
 void	PmergeMe::performBinarySearchAndInsertForSecondElementDeque()
@@ -448,36 +448,36 @@ void PmergeMe::mergeVector(int left_idx, int mid, int right_idx)
     int i, j, k;
     int size_left_arr = mid - left_idx + 1;
     int size_right_arr = right_idx - mid;
-    int left[size_left_arr], right[size_right_arr];
+	std::vector<std::pair<int, int> > left(size_left_arr), right(size_left_arr);
 
     for (i = 0; i < size_left_arr; i++)
-        left[i] = _pair_vector[left_idx + i].first;
+        left[i] = _pair_vector[left_idx + i];
     for (j = 0; j < size_right_arr; j++)
-        right[j] = _pair_vector[mid + 1 + j].first;
+        right[j] = _pair_vector[mid + 1 + j];
 
     i = 0;
     j = 0;
     k = left_idx;
     while (i < size_left_arr && j < size_right_arr) {
-        if (left[i] <= right[j]) {
-            _pair_vector[k].first = left[i];
+        if (left[i].first <= right[j].first) {
+            _pair_vector[k] = left[i];
             i++;
         }
         else {
-            _pair_vector[k].first = right[j];
+            _pair_vector[k] = right[j];
             j++;
         }
         k++;
     }
 
     while (i < size_left_arr) {
-        _pair_vector[k].first = left[i];
+        _pair_vector[k] = left[i];
         i++;
         k++;
     }
  
     while (j < size_right_arr) {
-        _pair_vector[k].first = right[j];
+        _pair_vector[k] = right[j];
         j++;
         k++;
     }
@@ -543,7 +543,7 @@ void	PmergeMe::BinarySearchInsertVector(size_t high, int value)
 		else
 			low = mid + 1;
 	}
-	_result_vector.insert(_result_vector.end(), value);
+	_result_vector.push_back(value);
 }
 
 void	PmergeMe::performBinarySearchAndInsertForSecondElementVector()
