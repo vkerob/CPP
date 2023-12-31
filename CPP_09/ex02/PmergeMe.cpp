@@ -34,13 +34,6 @@ PmergeMe &				PmergeMe::operator=( PmergeMe const & rhs )
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, PmergeMe const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */

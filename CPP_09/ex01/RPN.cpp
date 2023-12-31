@@ -1,5 +1,5 @@
 #include "RPN.hpp"
-const long RPN::ERROR_CODE = 2147483648;
+const float RPN::ERROR_CODE = 2147483648.0f;
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -38,9 +38,9 @@ RPN &				RPN::operator=( RPN const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-long	RPN::calculate(std::string &str)
+float	RPN::calculate(std::string &str)
 {
-	long				value, nb1, nb2;
+	float				value, nb1, nb2;
 	std::istringstream iss(str);
 	std::string 		input;
 
@@ -49,7 +49,8 @@ long	RPN::calculate(std::string &str)
 		// it's a digit
 		if (isdigit(input[0]) && input.size() == 1)
 		{
-			value = atol(input.c_str());
+			std::istringstream iss(input);
+            iss >> value;
 			_stack.push(value);
 		}
 		// it's two characters
@@ -95,7 +96,7 @@ long	RPN::calculate(std::string &str)
 				std::cout << "Error: unknown operator." << std::endl;
 				return ERROR_CODE;
 			}
-			if (value > 2147483647 || value < -2147483648)
+			if (value > 2147483647.0f || value < -2147483648.0f)
 			{
 				std::cout << "Error: overflow/underflow." << std::endl;
 				return ERROR_CODE;

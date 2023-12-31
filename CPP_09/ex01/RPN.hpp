@@ -12,9 +12,9 @@ class RPN
 
 	private:
 
-		static const long ERROR_CODE;
+		static const float ERROR_CODE;
 
-		std::stack<long> _stack;
+		std::stack<float> _stack;
 		RPN &		operator=( RPN const & rhs );
 		RPN( RPN const & src );
 
@@ -22,7 +22,7 @@ class RPN
 
 		RPN();
 		~RPN();
-		long	calculate(std::string &str);
+		float	calculate(std::string &str);
 
 
 
